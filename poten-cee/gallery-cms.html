@@ -1,0 +1,965 @@
+﻿<!doctype html>
+<html class="no-js" lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Poten Cee</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- <link rel="stylesheet" href="css/style.css" media="all"/> -->
+<style type="text/css">
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+	.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0px 10px; }
+
+ * {
+ 	-webkit-box-sizing: border-box;
+ 	-moz-box-sizing: border-box;
+ 	box-sizing: border-box;
+ }
+
+
+ a {
+  text-decoration: none; }
+
+body {
+  font-size: 14px;
+  font-family: 'open_sans', helvetica, arial, sans-serif;
+  line-height: 1.2;
+  color: #23202b; }
+
+
+.video-gallery {
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 0px 15px; }
+  .video-gallery ul {
+    margin: 0 -8px; }
+    .video-gallery ul:after {
+      content: '';
+      display: block;
+      float: none;
+      clear: both; }
+    .video-gallery ul li {
+      float: left;
+      width: 20%;
+      padding: 0px 8px;
+      padding-bottom: 20px; }
+      .video-gallery ul li:nth-child(5n+1) {
+        clear: left; }
+      @media (max-width: 1400px) {
+        .video-gallery ul li {
+          width: 25%; }
+          .video-gallery ul li:nth-child(5n+1) {
+            clear: none; }
+          .video-gallery ul li:nth-child(4n+1) {
+            clear: left; } }
+      @media (max-width: 1024px) {
+        .video-gallery ul li {
+          width: 33.33%; }
+          .video-gallery ul li:nth-child(5n+1) {
+            clear: none; }
+          .video-gallery ul li:nth-child(4n+1) {
+            clear: none; }
+          .video-gallery ul li:nth-child(3n+1) {
+            clear: left; } }
+      @media (max-width: 767px) {
+        .video-gallery ul li {
+          width: 50%; }
+          .video-gallery ul li:nth-child(5n+1) {
+            clear: none; }
+          .video-gallery ul li:nth-child(4n+1) {
+            clear: none; }
+          .video-gallery ul li:nth-child(3n+1) {
+            clear: none; }
+          .video-gallery ul li:nth-child(2n+1) {
+            clear: left; } }
+      @media (max-width: 480px) {
+        .video-gallery ul li {
+          width: 100%;
+          float: none;
+          clear: both; } }
+
+.video-gallery-cms .vg-btn {
+  padding-left: 0;
+  padding: 0; }
+
+.video-gallery-cms .vg-wrap {
+  position: relative; }
+
+.video-gallery-cms .vg-btn img {
+  display: none; }
+
+.video-gallery-cms .engagement {
+  min-width: 70px;
+  border: 1px solid #fb6825;
+  padding: 0px 5px 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #ffffff; }
+  .video-gallery-cms .engagement span {
+    display: block;
+    font-size: 10px;
+    font-weight: 300;
+    text-align: center;
+    background: #fb6825;
+    margin: 0px -5px;
+    color: #ffffff;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+    .video-gallery-cms .engagement span.engage-value {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0;
+      padding: 8px 0;
+      background: #ffffff;
+      color: #23202b; }
+
+.video-gallery-cms .custom-checkbox [type="checkbox"]:not(:checked) + label:before, .video-gallery-cms .custom-checkbox [type="checkbox"]:checked + label:before {
+  border: 2px solid #ccc; }
+
+.vg-wrap:after {
+  content: '';
+  display: block;
+  float: none;
+  clear: both; }
+
+.vg-item {
+  height: 0;
+  padding-bottom: 75%;
+  width: 100%;
+  background: #000; }
+
+.vg-thumg {
+  position: relative;
+  height: 0;
+  padding-bottom: 75%; }
+  .vg-thumg img {
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+
+.vg-btn {
+  width: 33.33%;
+  float: left;
+  padding: 5px 0;
+  margin-top: 5px;
+  margin-right: 20px;
+  padding-left: 5px; }
+  .vg-btn img {
+    width: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -2px; }
+  .vg-btn span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 2px; }
+  .vg-btn strong {
+    color: #fb6825; }
+
+.play-btn {
+  display: block;
+  position: relative; }
+  .play-btn:before {
+    content: '';
+    width: 50px;
+    height: 50px;
+    border: 2px solid #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    color: #fff;
+    background: url(images/page_template/arrow.png) no-repeat center center;
+    background-size: 78%;
+    border-radius: 50%;
+    line-height: 50px;
+    text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); }
+
+.video-holder video {
+  width: 100%;
+  height: auto;
+  display: block; }
+
+.vg-caption {
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px 10px;
+  font-size: 12px; }
+
+#video-wrap {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1011;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease; }
+  @media (max-width: 767px) {
+    #video-wrap {
+      background: white; } }
+  #video-wrap.active {
+    opacity: 1;
+    visibility: visible; }
+  #video-wrap .popup-content {
+    background: #fff;
+    max-width: 800px;
+    padding: 0px 0px 20px;
+    margin: 30px auto 0;
+    position: relative; }
+
+.default-popup {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1011;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease; }
+  .default-popup.active {
+    visibility: visible;
+    opacity: 1; }
+  .default-popup .popup-content {
+    width: 30%;
+    max-width: 420px;
+    min-width: 420px;
+    background: #ffffff;
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 30%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    margin-left: -210px;
+    padding: 40px 15px 40px;
+    opacity: 1;
+    z-index: 9;
+    -webkit-transform: translateY(20%);
+    -moz-transform: translateY(20%);
+    -ms-transform: translateY(20%);
+    -o-transform: translateY(20%);
+    transform: translateY(20%);
+    -webkit-transition: all 0.4s 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    -moz-transition: all 0.4s 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    -ms-transition: all 0.4s 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    -o-transition: all 0.4s 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: all 0.4s 0.3s cubic-bezier(0.215, 0.61, 0.355, 1); }
+    @media (max-width: 767px) {
+      .default-popup .popup-content {
+        min-width: auto;
+        width: 100%;
+        margin-left: 0;
+        left: 0;
+        padding: 25px 15px; } }
+    .default-popup .popup-content h2 {
+      text-align: left;
+      margin-bottom: 5px;
+      font-size: 16px;
+      font-weight: 700; }
+    .default-popup .popup-content p {
+      font-size: 12px;
+      padding-bottom: 10px;
+      text-align: left; }
+
+.p-btn-wrapper {
+  margin-top: 20px; }
+
+.btn-wrapper {
+  padding: 10px 0 0;
+  clear: both;
+  float: none; }
+  .btn-wrapper .btn {
+    padding: 8px 15px;
+    font-size: 12px; }
+
+.btn {
+  display: inline-block;
+  padding: 10px 25px;
+  color: #fff;
+  background: #fb6825;
+  border-radius: 3px; }
+  .btn.btn-ghost {
+    background: transparent;
+    color: #23202b;
+    padding: 10px 15px; }
+  .btn.btn-green {
+    background: #008a47; }
+  .btn.btn-red {
+    background: #e32d33; }
+  .btn.btn-large {
+    padding: 14px 35px;
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 30px; }
+
+.close-video {
+  font-size: 16px;
+  width: 25px;
+  height: 25px;
+  background: #fff;
+  display: block;
+  top: 0;
+  right: 0;
+  line-height: 25px;
+  position: absolute;
+  z-index: 2;
+  text-align: center; }
+  .close-video img {
+    max-width: 100%;
+    height: auto;
+    display: block; }
+
+.custom-checkbox [type="checkbox"]:not(:checked),
+.custom-checkbox [type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px; }
+
+.custom-checkbox [type="checkbox"]:not(:checked) + label,
+.custom-checkbox [type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 13px;
+  padding-top: 2px; }
+
+/* checkbox aspect */
+.custom-checkbox [type="checkbox"]:not(:checked) + label:before,
+.custom-checkbox [type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 4px; }
+
+.error .custom-checkbox [type="checkbox"]:not(:checked) + label:before,
+.error .custom-checkbox [type="checkbox"]:checked + label:before {
+  border: 1px solid #da1d23; }
+
+/* checked mark aspect */
+.custom-checkbox [type="checkbox"]:not(:checked) + label:after,
+.custom-checkbox [type="checkbox"]:checked + label:after {
+  content: '✔';
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  font-size: 16px;
+  line-height: 0.8;
+  color: #09ad7e;
+  -webkit-transition: all .2s;
+  -o-transition: all .2s;
+  transition: all .2s; }
+
+/* checked mark aspect changes */
+.custom-checkbox [type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0); }
+
+.custom-checkbox [type="checkbox"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1); }
+
+/* disabled checkbox */
+.custom-checkbox [type="checkbox"]:disabled:not(:checked) + label:before,
+.custom-checkbox [type="checkbox"]:disabled:checked + label:before {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd; }
+
+.custom-checkbox [type="checkbox"]:disabled:checked + label:after {
+  color: #999; }
+
+.custom-checkbox [type="checkbox"]:disabled + label {
+  color: #aaa; }
+
+
+
+.floating-checkbox {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  background: #fff;
+  padding: 10px;
+  width: 45px;
+  border: 1px solid #fb6825; }
+  .floating-checkbox .custom-checkbox {
+    margin-top: 0;
+    margin-left: 0; }
+
+</style>
+
+<!--[if lt IE 9]> <script src="js/css3-mediaqueries.js"></script> <![endif]-->
+<script src="js/html5.js"></script>
+</head>
+<body>
+<section id="main-container">
+	<!-- <div class="popup-wrap" id="video-wrap">
+		<div class="popup-content">
+			<a href="#" class="close-video"><img src="images/page_template/close.png" alt=""></a>
+			<div class="video-holder">
+				
+			</div>
+		</div>
+	</div>
+
+	<div class="popup-wrap default-popup" id="confirmation">
+		<div class="popup-content">
+			<h2>Are you sure you want to submit this entry?</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+			<div class="text-center p-btn-wrapper">
+				<a href="#" class="btn">OK</a>
+				<a href="#" class="btn btn-ghost">Cancel</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="popup-wrap default-popup" id="confirmation">
+		<div class="popup-content">
+			<h2>Thank you for submitting your entry.</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+			<div class="text-center p-btn-wrapper">
+				<a href="#" class="btn">Go to Gallery</a>
+				<a href="#" class="btn btn-ghost">Submit another</a>
+			</div>
+		</div>
+	</div>
+
+	<header>
+		<div class="container">
+			<div class="menu text-center">
+				<ul>
+					<li class="active"><a href="#step1">Submit Your Entry</a></li>
+					<li><a href="#step2">Video Gallery</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+	<section id="main-wrapper">
+		<div id="step1" class="step-wrap"  style="display: none;">
+			<div class="container">
+				<div class="head-title">
+					<h1 class="text-center">The Gummies Fun Choice Awards</h1>
+					<h3><strong>Prizes For Each of The 12 Winners:</strong></h3>
+					<ul class="prizes">
+						<li>Php 1000 worth of Poten-Cee Vitamin C Gummies (6 Bottles of Poten-Cee Gummies 30’s)</li>
+						<li>Two (2) passes to Kidzania</li>
+					</ul>
+				</div>
+
+				<div class="banner"><img src="images/banner.jpg" alt=""></div>
+				<div class="join-now-wrap text-center">
+					<a href="#" class="btn btn-large btn-green">Join Now!</a>
+				</div>
+				<div class="form-wrapper">
+					<h2 class="text-center">Dear Mommies, Please fill out the form below to enter</h2>
+					<hr>
+					<div class="form-content">
+						<form method="" post="">
+							<div class="input-wrap">
+								<label for="complete-name">Complete Name:</label>
+								<input id="complete-name" type="text" name="" value="" placeholder="">
+							</div>
+							<div class="input-wrap">
+								<label for="contact-num">Contact Number:</label>
+								<input id="contact-num" type="tel" name="" value="" placeholder="">
+							</div>
+							<div class="input-wrap">
+								<label for="email-add">Email Address:</label>
+								<input id="email-add" type="email" name="" value="" placeholder="">
+							</div>
+							<div class="input-wrap">
+								<label for="p-address">Present Address:</label>
+								<div class="present-add">
+									<input id="p-address" type="text" name="" value="" placeholder="">
+									<div class="input-row">
+										<div class="input-half">
+											<label>Province:</label>
+											<select>
+												<option>Mindoro</option>
+												<option>Manila</option>
+												<option>Mandaluyong</option>
+											</select>
+										</div>
+										<div class="input-half">
+											<label>City:</label>
+											<select>
+												<option>City 1</option>
+												<option>City 2</option>
+												<option>City 3</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								
+							</div>
+							<div class="input-wrap">
+								<label>Upload Video:</label>
+								<div class="file-upload">
+								    <label for="upload" class="file-upload__label">Choose File</label>
+
+								    <input id="upload" class="file-upload__input" type="file" name="file-upload">
+								</div>
+								<span class="required-file">You must upload a video atleast 10sec.</span>
+							</div>
+							<div class="input-wrap captionfield">
+								<label class="textarea-label">How do Poten-Cee Gummies make taking Vitamin C more fun everyday?</label>
+								<div class="textarea-wrap">
+									<textarea id="captionText" name="limitedtextarea" 
+									onKeyDown="limitText(this.form.limitedtextarea,this.form.countdown,100);
+
+									"  
+									onKeyUp="limitText(this.form.limitedtextarea,this.form.countdown,100);"></textarea>
+									<p class="error-message " style="display: none;"> This field is required*</p>
+									<p class="hastag-info">Must include <span>#GummiesTime</span></p>
+									<p>(Maximum characters: 100) You have <input readonly type="text" name="countdown" size="3" value="100"> characters left.</p>
+								</div>
+							</div>
+							<div class="input-wrap">
+								<label>&nbsp;</label>
+								<div class="custom-checkbox">
+									<input type="checkbox" id="term-checkbox"/>
+		    						<label for="term-checkbox">I accept terms and conditions</label>
+		    					</div>
+							</div>
+							<div class="input-wrap">
+								<label>&nbsp;</label>
+								<input type="submit" class="btn" name="" value="Submit">
+								<div class="wavy-loader"><span></span><span></span><span></span></div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div> -->
+		<div id="step2" class="step-wrap" style="display: block;">
+			<div class="video-gallery video-gallery-cms">
+				<ul>
+					<li>
+						<div class="vg-wrap active">
+							<div class="vg-item">
+								<a href="#" class="play-btn" data-html-video="spark.mp4">
+									<div class="vg-thumg">
+										<img src="images/page_template/wing-video1.jpg" alt="">
+									</div>
+									<div class="vg-caption">
+										<p><strong>Elwin T. Dela Cruz</strong></p>
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et #samplehastag </p>
+									</div>
+								</a>
+
+							</div>
+							<div class="floating-checkbox">
+								<div class="custom-checkbox">
+									<input type="checkbox" id="checkbox1"/>
+		    						<label for="checkbox1"></label>
+		    					</div>
+		    				</div>
+							<div class="engagement">
+								<span class="engage-value">100</span>
+								<span>Engagement</span>
+							</div>
+							<p class="vg-btn vg-like"><a href="#"><span><img src="images/page_template/like.png" alt=""></span> <strong>100</strong> Likes</a></p>
+							<p class="vg-btn vg-share"><a href="#"><span><img src="images/page_template/share.png" alt=""></span> <strong>2</strong> Share</a></p>
+
+							
+						</div>
+					</li>
+					<li>
+						<div class="vg-wrap">
+							<div class="vg-item">
+								<a href="#" class="play-btn" data-html-video="">
+									<div class="vg-thumg">
+										<img src="images/page_template/wing-video1.jpg" alt="">
+									</div>
+									<div class="vg-caption">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  </p>
+									</div>
+								</a>
+
+							</div>
+							<div class="floating-checkbox">
+								<div class="custom-checkbox">
+									<input type="checkbox" id="checkbox2"/>
+		    						<label for="checkbox2"></label>
+		    					</div>
+		    				</div>
+							<div class="engagement">
+								<span class="engage-value">1,000</span>
+								<span>Engagement</span>
+							</div>
+							<p class="vg-btn vg-like"><a href="#"><span><img src="images/page_template/like.png" alt=""></span> <strong>100</strong> Likes</a></p>
+							<p class="vg-btn vg-share"><a href="#"><span><img src="images/page_template/share.png" alt=""></span> <strong>2</strong> Share</a></p>
+
+							
+						</div>
+					</li>
+					<li>
+						<div class="vg-wrap">
+							<div class="vg-item">
+								<a href="#" class="play-btn" data-html-video="spark.mp4">
+									<div class="vg-thumg">
+										<img src="images/page_template/wing-video1.jpg" alt="">
+									</div>
+									<div class="vg-caption">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+									</div>
+								</a>
+
+							</div>
+							<div class="floating-checkbox">
+								<div class="custom-checkbox">
+									<input type="checkbox" id="checkbox3"/>
+		    						<label for="checkbox3"></label>
+		    					</div>
+		    				</div>
+							<div class="engagement">
+								<span class="engage-value">1,000</span>
+								<span>Engagement</span>
+							</div>
+							<p class="vg-btn vg-like"><a href="#"><span><img src="images/page_template/like.png" alt=""></span> <strong>100</strong> Likes</a></p>
+							<p class="vg-btn vg-share"><a href="#"><span><img src="images/page_template/share.png" alt=""></span> <strong>2</strong> Share</a></p>
+
+							
+						</div>
+					</li>
+					<li>
+						<div class="vg-wrap">
+							<div class="vg-item">
+								<a href="#" class="play-btn" data-html-video="spark.mp4">
+									<div class="vg-thumg">
+										<img src="images/page_template/wing-video1.jpg" alt="">
+									</div>
+									<div class="vg-caption">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p>
+									</div>
+								</a>
+							</div>
+							<div class="floating-checkbox">
+								<div class="custom-checkbox">
+									<input type="checkbox" id="checkbox4"/>
+		    						<label for="checkbox4"></label>
+		    					</div>
+		    				</div>
+							<div class="engagement">
+								<span class="engage-value">1,000</span>
+								<span>Engagement</span>
+							</div>
+							<p class="vg-btn vg-like"><a href="#"><span><img src="images/page_template/like.png" alt=""></span> <strong>100</strong> Likes</a></p>
+							<p class="vg-btn vg-share"><a href="#"><span><img src="images/page_template/share.png" alt=""></span> <strong>2</strong> Share</a></p>
+
+							
+						</div>
+					</li>
+					<li>
+						<div class="vg-wrap">
+							<div class="vg-item">
+								<a href="#" class="play-btn" data-html-video="spark.mp4">
+									<div class="vg-thumg">
+										<img src="images/page_template/wing-video1.jpg" alt="">
+									</div>
+									<div class="vg-caption">
+										<p>Lorem ipsum dolor sit amet, consectetur  </p>
+									</div>
+								</a>
+
+							</div>
+							<div class="floating-checkbox">
+								<div class="custom-checkbox">
+									<input type="checkbox" id="checkbox5"/>
+		    						<label for="checkbox5"></label>
+		    					</div>
+		    				</div>
+							<div class="engagement">
+								<span class="engage-value">1,000</span>
+								<span>Engagement</span>
+							</div>
+							<p class="vg-btn vg-like"><a href="#"><span><img src="images/page_template/like.png" alt=""></span> <strong>100</strong> Likes</a></p>
+							<p class="vg-btn vg-share"><a href="#"><span><img src="images/page_template/share.png" alt=""></span> <strong>2</strong> Share</a></p>
+
+						</div>
+					</li>
+					<li>
+						<div class="vg-wrap">
+							<div class="vg-item">
+								<a href="#" class="play-btn" data-html-video="spark.mp4">
+									<div class="vg-thumg">
+										<img src="images/page_template/wing-video1.jpg" alt="">
+									</div>
+									<div class="vg-caption">
+										<p>Lorem ipsum dolor sit amet, </p>
+									</div>
+								</a>
+
+							</div>
+							<div class="floating-checkbox">
+								<div class="custom-checkbox">
+									<input type="checkbox" id="checkbox6"/>
+		    						<label for="checkbox6"></label>
+		    					</div>
+		    				</div>
+							<div class="engagement">
+								<span class="engage-value">1,000</span>
+								<span>Engagement</span>
+							</div>
+							<p class="vg-btn vg-like"><a href="#"><span><img src="images/page_template/like.png" alt=""></span> <strong>100</strong> Likes</a></p>
+							<p class="vg-btn vg-share"><a href="#"><span><img src="images/page_template/share.png" alt=""></span> <strong>2</strong> Share</a></p>
+
+							
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+</section>
+<footer></footer>
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/jquery-ui.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/custom.js"></script>
+
+<script type="text/javascript">
+	
+	$('.menu ul li a').click(function(e){
+		e.preventDefault();
+		$('.menu li').removeClass('active');
+		$(this).closest('li').addClass('active');
+
+		var _this = $(this).attr('href');
+		$('.step-wrap').css({'display' : 'none'});
+		$(_this).css({'display' : 'block'});
+
+	});
+
+	$('.close-video').click(function(e){
+		e.preventDefault();
+
+		$('.popup-wrap').removeClass('active');	
+		$('.video-holder video')[0].pause();
+	});
+
+	$('.play-btn').click(function(e){
+		e.preventDefault();
+		$('#video-wrap').addClass('active');
+		$('.video-holder').html('');	
+	});
+
+	$('.play-btn').click(function(e){
+		e.preventDefault();
+
+		var videoUrl = $(this).attr('data-html-video');
+		var videoElem = '<video width="100%" height="100%" autoplay="true" preload="none">' +
+	                    '<source src="video/'+videoUrl+'" type="video/mp4">' +
+	                   	'<source src="video/'+videoUrl+'" type="video/webm">' +
+	                    '</video>';
+	    $('#video-wrap').addClass('active');
+
+	    if($('.video-holder').children('*').size() > 0) {
+	    	$('.video-holder video')[0].play();
+	    } else {
+	    	$('.video-holder').html(videoElem);	
+	    }
+
+
+	    $(".video-holder video").bind("ended", function() {
+			console.log('end');
+			$('.video-holder video')[0].autoplay=false
+			$('#video-holder').removeClass('active');
+		});
+
+	})
+
+	$('#term-checkbox').change(function(){
+        
+        //$('.fill-up-correctly').removeClass('is-open');
+
+        if( $('#terms-checkbox').is(':checked')) {
+            $('#terms-checkbox').closest('.custom-checkbox').removeClass('error')
+
+        } else {
+            $('#terms-checkbox').closest('.custom-checkbox').addClass('error');
+        }
+
+    });
+
+	$('.form-content form').submit(function(e){
+		e.preventDefault();
+		$('.form-content .input-wrap:not(.no-error)').addClass('error');
+       	isvalidate = false;
+
+		if(!$('#complete-name').val() == '') {
+        	$('#complete-name').closest('.input-wrap').removeClass('error');
+        	isvalidate = true;
+        } else {
+        	isvalidate = false;
+        }
+
+        if(!$('#p-address').val() == '') {
+        	$('#p-address').closest('.input-wrap').removeClass('error');
+        	isvalidate = true;
+        } else {
+        	isvalidate = false;
+        }
+
+		if( IsEmail($('#email-add').val() )) {
+        	$('#email-add').closest('.input-wrap').removeClass('error');
+        	isvalidate = true;
+        } else {
+        	isvalidate = false;
+        }
+
+		if(!$('#contact-num').val() == '' && $('#contact-num').val().length >= 6) {
+        	$('#contact-num').closest('.input-wrap').removeClass('error');
+        	isvalidate = true;
+        } else {
+        	isvalidate = false;
+        }
+
+        if ($('#captionText').val() != '' && hastag) {
+            $('#captionText').closest('.captionfield').removeClass('error');
+            $('.captionfield .error-message, .hastag-info').css({'display' : 'none'});
+            isvalidate = true;
+        } else {
+            isvalidate = false;
+            $('.captionfield .error-message, .hastag-info').css({'display' : 'block'});
+        }
+
+        if( $('#term-checkbox').prop('checked')) {
+            $('#term-checkbox').closest('.input-wrap').removeClass('error')
+            isvalidate = true;
+        } else {
+            $('#term-checkbox').closest('.input-wrap').addClass('error');
+            isvalidate = false;
+        }
+
+		if($('#complete-name').val() != '' && $('#email-add').val() != '' && !$('#p-address').val() == '' && $('#contact-num').val().length >= 6 && $('#contact-num').val() != '') {
+			$('.loading-spinner-wrapper').addClass('active');
+			$('.popup-wrap').addClass('active');
+			return true;
+			
+		} else {
+			return false;
+		}
+	});
+
+	var hastag;
+
+    $(".captionfield textarea").on("change", function(){
+        hastag = isSwearWord($(this).val());
+    });
+
+    function isSwearWord(fieldValue) {
+        var words = ["#GummiesTime", "#gummiestime", "gummiesTime", "Gummiestime"];
+
+        for (i = 0; i < words.length; i++) {
+            var tregex = '(\\s+|^)'+words[i]+'(\\s+|$)';
+            //var tregex = words[i];
+            var rgx = new RegExp(tregex, 'gi');
+            if (rgx.test(fieldValue)) {
+                $('.captionfield .error-message').css({'display' : 'none'});
+                return true;
+            } else {
+                $('.captionfield .error-message').css({'display' : 'block'});
+            }
+        }
+        return false;
+    }
+
+	function limitText(limitField, limitCount, limitNum) {
+		if (limitField.value.length > limitNum) {
+			limitField.value = limitField.value.substring(0, limitNum);
+		} else {
+			limitCount.value = limitNum - limitField.value.length;
+		}
+	}
+
+	function IsEmail(email) {
+	    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	    return regex.test(email);
+	}
+</script>
+</body>
+</html>
