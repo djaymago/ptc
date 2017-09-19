@@ -1,0 +1,37 @@
+// ionclude all your related style here in the header, you can leave it empty if the page has no header
+
+.ease,a,input[type="submit"],button { @include transition(all 0.5s ease); }
+
+
+.menu {
+	margin: 15px 0 20px;
+
+	ul {
+
+		li {
+			display: inline-block;
+			margin: 0px 3px;
+
+
+			a {
+				padding: 8px 15px;
+				text-align: center;
+				display: block;
+				background: $coOrange;
+				color: $coWhite;
+				border-radius: 3px;
+				border: 1px solid #ccc;
+				box-shadow: inset 0px 1px 10px rgba(0, 0, 0, 0.2);
+			}
+
+			&.active {
+
+				a {
+					box-shadow: inset 0px 1px 10px rgba(0, 0, 0, 0);
+					color: #000;
+					background: #f2f2f2;
+				}
+			}
+		}
+	}
+}
