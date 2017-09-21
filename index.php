@@ -22,7 +22,7 @@
 <section id="main-container">
     <div class="popup-wrap" id="video-wrap">
         <div class="popup-content">
-            <a href="#" class="close-video"><img src="images/page_template/close.png" alt=""></a>
+            <a href="#" class="close-video"><img src="https://ptc-campaign.herokuapp.com/images/page_template/close.png" alt=""></a>
             <div class="video-holder">
             </div>
         </div>
@@ -95,7 +95,7 @@
                     </ul>
                 </div>
 
-                <div class="banner"><img src="images/banner.jpg" alt=""></div>
+                <div class="banner"><img src="https://ptc-campaign.herokuapp.com/images/banner.jpg" alt=""></div>
 
                 <div class="join-now-wrap text-center">
                     <a href="#" class="btn btn-large btn-green" data-text="Join Now!">Submit Entry Now!</a>
