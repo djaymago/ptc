@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <link rel="stylesheet" href="css/style.css" media="all"/>
+    <link rel="stylesheet" href="js/loader/style.css" media="all"/>
+    <link rel="stylesheet" href="js/sticky/sticky.min.css" media="all"/>
 
     <!--[if lt IE 9]> <script src="js/css3-mediaqueries.js"></script> <![endif]-->
     <script src="js/html5.js"></script>
@@ -34,13 +36,35 @@
         </div>
     </div>
 
-    <div class="popup-wrap default-popup" id="thankyou">
+    <div class="popup-wrap default-popup" id="confirmation-thankyou">
         <div class="popup-content">
             <h2>Thank you for submitting your entry.</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
             <div class="text-center p-btn-wrapper">
-                <a href="#" class="btn">Go to Gallery</a>
-                <a href="#" class="btn btn-ghost">Submit another</a>
+                <a href="#" class="btn btn-go-gallery">Go to Gallery</a>
+                <a href="#" class="btn btn-ghost btn-cancel-modal">Submit another</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-wrap default-popup" id="confirmation-like">
+        <div class="popup-content">
+            <h2>Confirm Like</h2>
+            <p>Are you sure you want to like this entry? </p>
+            <div class="text-center p-btn-wrapper">
+                <a href="#" class="btn btn-like-confirm">Confirm Like</a>
+                <a href="#" class="btn btn-ghost btn-cancel-modal">Cancel</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup-wrap default-popup" id="confirmation-share">
+        <div class="popup-content">
+            <h2>Confirm Share</h2>
+            <p>Are you sure you want to share this entry? </p>
+            <div class="text-center p-btn-wrapper">
+                <a href="#" class="btn btn-share-confirm">Confirm Share</a>
+                <a href="#" class="btn btn-ghost btn-cancel-modal">Cancel</a>
             </div>
         </div>
     </div>
@@ -68,11 +92,18 @@
                 </div>
 
                 <div class="banner"><img src="images/banner.jpg" alt=""></div>
-                <div class="form-wrapper">
+
+                <div class="join-now-wrap text-center">
+                    <a href="#" class="btn btn-large btn-green" data-text="Join Now!">Join Now!</a>
+                </div>
+
+                <div class="form-wrapper frm-section" style="display:none;">
                     <h2 class="text-center">Dear Mommies, Please fill out the form below to enter</h2>
                     <hr>
                     <div class="form-content">
                         <form method="post" id="formEntry">
+                            <input type="hidden" name="account_id" id="account_id" value="0">
+                            <input type="hidden" name="status" id="status" value="1">
                             <div class="input-wrap">
                                 <label for="complete-name">Complete Name:</label>
                                 <input id="complete-name" type="text" name="fullname" value="" placeholder="">
@@ -91,27 +122,27 @@
                                     <div class="input-row">
                                         <div class="input-half">
                                             <label>Regions:</label>
-                                            <select id="loc_region">
+                                            <select id="loc_region" name="region">
                                                 <option>Loading...</option>
                                             </select>
                                         </div>
                                         <div class="input-half">
                                             <label>City:</label>
-                                            <select id="loc_cities">
+                                            <select id="loc_cities" name="city">
                                                 <option>Loading...</option>
                                             </select>
                                         </div>
                                     </div><br>
                                     <label>Address:</label>
-                                    <input id="p-address" type="text" name="" value="" placeholder="">
+                                    <input id="p-address" type="text" name="address" value="" placeholder="">
                                 </div>
                             </div>
                             <div class="input-wrap">
                                 <label>Upload Video:</label>
                                 <div class="file-upload">
-                                    <label for="upload" class="file-upload__label">Choose File</label>
+                                    <label for="upload-file" class="file-upload__label">Choose File</label>
 
-                                    <input id="upload" class="file-upload__input" type="file" name="file_upload">
+                                    <input id="upload-file" class="file-upload__input" type="file" name="file_upload">
                                 </div>
 
                                 <div class="wavy-loader uploader-loader">
@@ -260,9 +291,10 @@
 <script src="js/plugins.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/app_script.js"></script>
+<script src="js/loader/script.js"></script>
+<script src="js/sticky/sticky.min.js"></script>
 
 <script type="text/javascript">
-
     $('.menu ul li a').click(function(e){
         e.preventDefault();
         $('.menu li').removeClass('active');
@@ -319,6 +351,7 @@
     });
 
     $('.btn-confirm-submit').click( function(e) {
+        e.preventDefault();
         submitEntry();
     });
 
@@ -332,39 +365,40 @@
     $('.form-content form').submit(function(e){
         e.preventDefault();
         $('.form-content .input-wrap:not(.no-error)').addClass('error');
-        isvalidate = false;
+        isvalidate = true;
 
         if(!$('#complete-name').val() == '') {
             $('#complete-name').closest('.input-wrap').removeClass('error');
-            isvalidate = true;
         } else {
             isvalidate = false;
         }
 
         if(!$('#p-address').val() == '') {
             $('#p-address').closest('.input-wrap').removeClass('error');
-            isvalidate = true;
         } else {
             isvalidate = false;
         }
 
         if( IsEmail($('#email-add').val() )) {
             $('#email-add').closest('.input-wrap').removeClass('error');
-            isvalidate = true;
         } else {
             isvalidate = false;
         }
 
         if(!$('#contact-num').val() == '' && $('#contact-num').val().length==11) {
             $('#contact-num').closest('.input-wrap').removeClass('error');
-            isvalidate = true;
+        } else {
+            isvalidate = false;
+        }
+
+        if(!$('#upload-file').val()=='') {
+            $('#upload-file').closest('.input-wrap').removeClass('error');
         } else {
             isvalidate = false;
         }
 
         if( $('#term-checkbox').prop('checked')) {
-            $('#term-checkbox').closest('.input-wrap').removeClass('error')
-            isvalidate = true;
+            $('#term-checkbox').closest('.input-wrap').removeClass('error');
         } else {
             $('#term-checkbox').closest('.input-wrap').addClass('error');
             isvalidate = false;
