@@ -7,12 +7,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <link rel="stylesheet" href="css/style.css" media="all"/>
-    <link rel="stylesheet" href="js/loader/style.css" media="all"/>
-    <link rel="stylesheet" href="js/sticky/sticky.min.css" media="all"/>
+    <link rel="stylesheet" href="https://ptc-campaign.herokuapp.com/css/style.css" media="all"/>
+    <link rel="stylesheet" href="https://ptc-campaign.herokuapp.com/js/loader/style.css" media="all"/>
+    <link rel="stylesheet" href="https://ptc-campaign.herokuapp.com/js/sticky/sticky.min.css" media="all"/>
 
-    <!--[if lt IE 9]> <script src="js/css3-mediaqueries.js"></script> <![endif]-->
-    <script src="js/html5.js"></script>
+    <!--[if lt IE 9]> <script src="https://ptc-campaign.herokuapp.com/js/css3-mediaqueries.js"></script> <![endif]-->
+    <script src="https://ptc-campaign.herokuapp.com/js/html5.js"></script>
 
     <style>
         .separator-header { width: 70%; border: 1px solid #ccc; margin-bottom: 20px; }
@@ -186,12 +186,12 @@
     </section>
 </section>
 <footer></footer>
-<script src="js/lib/jquery.min.js"></script>
-<script src="js/lib/jquery-ui.min.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/app_script.js"></script>
-<script src="js/loader/script.js"></script>
-<script src="js/sticky/sticky.min.js"></script>
+<script src="https://ptc-campaign.herokuapp.com/js/lib/jquery.min.js"></script>
+<script src="https://ptc-campaign.herokuapp.com/js/lib/jquery-ui.min.js"></script>
+<script src="https://ptc-campaign.herokuapp.com/js/plugins.js"></script>
+<script src="https://ptc-campaign.herokuapp.com/js/custom.js"></script>
+<script src="https://ptc-campaign.herokuapp.com/js/app_script.js"></script>
+<script src="https://ptc-campaign.herokuapp.com/js/loader/script.js"></script>
+<script src="https://ptc-campaign.herokuapp.com/js/sticky/sticky.min.js"></script>
 </body>
 </html>
