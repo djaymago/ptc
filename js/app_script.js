@@ -160,7 +160,7 @@ function shareEntry(entryId) {
 
         FB.ui({
             method: 'share',
-            href: 'https://developers.facebook.com/docs/'
+            href: 'https://ptc-campaign.herokuapp.com/fb-share-tags.html'
         }, function(response) {
             console.log(response)
             if (response && !response.error_code) {
