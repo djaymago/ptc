@@ -15,6 +15,8 @@ var serverHost = 'http://tools.propelrr.net/';
 var host = serverHost+"listener/poten-cee";
 var galleryActiveID = 0;
 
+var hastag;
+
 $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
     FB.init({
         appId: '487951431561097',
@@ -33,7 +35,11 @@ function getList() {
         processData: false,
         contentType: false
     }).done( function(data) {
-        $('.video-gallery ul').html(data.list);
+        var entryDiv = $('.video-gallery ul');
+        entryDiv.html(data.list);
+        if(data.list=='') {
+            entryDiv.html('<div style="text-align: center;">There\'s no entry yet.<br><br>Be the first to submit your entry and get a chance to win the prize!</div>');
+        }
     }).always( function(data) {
     });
 }
@@ -54,6 +60,7 @@ function bindClicks() {
     $dom.on('click', btnGoGallery, function(e) {
         e.preventDefault();
         $('.menu').find('li:nth-child(2)').find('a').trigger('click');
+        $(modalThankYou).removeClass('active');
     });
 
     $dom.on('click', btnLike, function(e) {
@@ -97,10 +104,167 @@ function bindClicks() {
             }
         });
     });
+
+    $dom.on('click', '.btn-gallery-nav', function() {
+        getList();
+    });
+
+    $('.menu ul li a').click(function(e){
+        e.preventDefault();
+        $('.menu li').removeClass('active');
+        $(this).closest('li').addClass('active');
+
+        var _this = $(this).attr('href');
+        $('.step-wrap').css({'display' : 'none'});
+        $(_this).css({'display' : 'block'});
+
+    });
+
+    $('.btn-cancel-modal').click( function(e) {
+        $(this).closest('.popup-wrap').removeClass('active');
+
+        e.preventDefault();
+    });
+
+    $('.btn-confirm-submit').click( function(e) {
+        e.preventDefault();
+        submitEntry();
+    });
+
+    /** Video Player **/
+    $dom.on('click', '.close-video', function(e) {
+        e.preventDefault();
+
+        $('.popup-wrap').removeClass('active');
+        $('.video-holder video')[0].pause();
+    });
+
+    $dom.on('click', '.play-btn', function(e) {
+        e.preventDefault();
+        $('#video-wrap').addClass('active');
+        $('.video-holder').html('');
+
+        var videoUrl = $(this).attr('data-html-video');
+        var videoElem = '<video width="100%" height="100%" autoplay="true" preload="none">' +
+            '<source src="'+videoUrl+'" type="video/mp4">' +
+            '<source src="'+videoUrl+'" type="video/webm">' +
+            '</video>';
+        $('#video-wrap').addClass('active');
+
+        if($('.video-holder').children('*').size() > 0) {
+            $('.video-holder video')[0].play();
+        } else {
+            $('.video-holder').html(videoElem);
+        }
+
+
+        $(".video-holder video").bind("ended", function() {
+            console.log('end');
+            $('.video-holder video')[0].autoplay=false
+            $('#video-holder').removeClass('active');
+        });
+    });
+
+}
+
+
+function bindEvents() {
+    $('#term-checkbox').change(function(){
+        if( $('#terms-checkbox').is(':checked'))
+            $('#terms-checkbox').closest('.custom-checkbox').removeClass('error')
+        else
+            $('#terms-checkbox').closest('.custom-checkbox').addClass('error');
+    });
+
+    $('.form-content form').submit(function(e){
+        e.preventDefault();
+        $('.form-content .input-wrap:not(.no-error)').addClass('error');
+        isvalidate = true;
+
+        if(!$('#complete-name').val() == '') {
+            $('#complete-name').closest('.input-wrap').removeClass('error');
+        } else {
+            isvalidate = false;
+        }
+
+        if(!$('#p-address').val() == '') {
+            $('#p-address').closest('.input-wrap').removeClass('error');
+        } else {
+            isvalidate = false;
+        }
+
+        if( IsEmail($('#email-add').val() )) {
+            $('#email-add').closest('.input-wrap').removeClass('error');
+        } else {
+            isvalidate = false;
+        }
+
+        if(!$('#contact-num').val() == '' && $('#contact-num').val().length==11) {
+            $('#contact-num').closest('.input-wrap').removeClass('error');
+        } else {
+            isvalidate = false;
+        }
+
+        if ($('#captionText').val() != '' && hastag) {
+            $('#captionText').closest('.captionfield').removeClass('error');
+            $('.captionfield .error-message, .hastag-info').css({'display' : 'none'});
+        } else {
+            isvalidate = false;
+            $('.captionfield .error-message, .hastag-info').css({'display' : 'block'});
+        }
+
+        if(!$('#upload-file').val()=='') {
+            $('#upload-file').closest('.input-wrap').removeClass('error');
+        } else {
+            isvalidate = false;
+        }
+
+        if( $('#term-checkbox').prop('checked')) {
+            $('#term-checkbox').closest('.input-wrap').removeClass('error');
+        } else {
+            $('#term-checkbox').closest('.input-wrap').addClass('error');
+            isvalidate = false;
+        }
+
+        if(isvalidate) {
+            $('.loading-spinner-wrapper').addClass('active');
+            $('#confirmation-submit').addClass('active');
+        }
+
+        return false;
+    });
 }
 
 getList();
 bindClicks();
+bindEvents();
+
+function limitText(limitField, limitCount, limitNum) {
+    if (limitField.value.length > limitNum) {
+        limitField.value = limitField.value.substring(0, limitNum);
+    } else {
+        limitCount.value = limitNum - limitField.value.length;
+    }
+}
+
+$(".captionfield textarea").on("change", function(){
+    hastag = isSwearWord($(this).val());
+});
+
+function isSwearWord(fieldValue) {
+    if (fieldValue.toLowerCase().indexOf("#gummiestime")>=0) {
+        $('.captionfield .error-message').css({'display' : 'none'});
+        return true;
+    } else {
+        $('.captionfield .error-message').css({'display' : 'block'});
+    }
+    return false;
+}
+
+function IsEmail(email) {
+    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email);
+}
 
 function likeEntry(entryId) {
     FB.api('/me', {fields: 'id,first_name,last_name,birthday,age_range,gender,about,email,education,devices,hometown,location'}, function(response) {
@@ -135,7 +299,7 @@ function likeEntry(entryId) {
             }).done( function(response) {
                 $(modalLike).removeClass('active');
                 $.sticky(response.code==200 ? 'You have liked an entry!' :
-                    (response.code==201 ? 'You have already liked this entry!':
+                    (response.code==201 ? 'You already liked this entry!':
                         'Error occurred. Please try again.'), {
                     'autoclose' : 5000
                 });

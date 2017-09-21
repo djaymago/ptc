@@ -13,6 +13,10 @@
 
     <!--[if lt IE 9]> <script src="js/css3-mediaqueries.js"></script> <![endif]-->
     <script src="js/html5.js"></script>
+
+    <style>
+        .separator-header { width: 70%; border: 1px solid #ccc; margin-bottom: 20px; }
+    </style>
 </head>
 <body>
 <section id="main-container">
@@ -20,7 +24,6 @@
         <div class="popup-content">
             <a href="#" class="close-video"><img src="images/page_template/close.png" alt=""></a>
             <div class="video-holder">
-
             </div>
         </div>
     </div>
@@ -74,11 +77,12 @@
             <div class="menu text-center">
                 <ul>
                     <li class="active"><a href="#step1">Submit Your Entry</a></li>
-                    <li><a href="#step2">Video Gallery</a></li>
+                    <li><a class="btn-gallery-nav" href="#step2">Video Gallery</a></li>
                 </ul>
             </div>
         </div>
     </header>
+    <hr class="separator-header">
     <section id="main-wrapper">
         <div id="step1" class="step-wrap"  style="display: block;">
             <div class="container">
@@ -94,7 +98,7 @@
                 <div class="banner"><img src="images/banner.jpg" alt=""></div>
 
                 <div class="join-now-wrap text-center">
-                    <a href="#" class="btn btn-large btn-green" data-text="Join Now!">Join Now!</a>
+                    <a href="#" class="btn btn-large btn-green" data-text="Join Now!">Submit Entry Now!</a>
                 </div>
 
                 <div class="form-wrapper frm-section" style="display:none;">
@@ -103,7 +107,7 @@
                     <div class="form-content">
                         <form method="post" id="formEntry">
                             <input type="hidden" name="account_id" id="account_id" value="0">
-                            <input type="hidden" name="status" id="status" value="1">
+                            <input type="hidden" name="status" id="status" value="3">
                             <div class="input-wrap">
                                 <label for="complete-name">Complete Name:</label>
                                 <input id="complete-name" type="text" name="fullname" value="" placeholder="">
@@ -144,17 +148,15 @@
 
                                     <input id="upload-file" class="file-upload__input" type="file" name="file_upload">
                                 </div>
-
-                                <div class="wavy-loader uploader-loader">
-                                    <span></span><span></span><span></span>
-                                </div>
                                 <span class="required-file">You must upload a video atleast 10sec.</span>
                             </div>
-                            <div class="input-wrap no-error">
+                            <div class="input-wrap captionfield">
                                 <label>Caption:</label>
                                 <div class="textarea-wrap">
-                                    <textarea name="description" onKeyDown="limitText(this.form.description,this.form.countdown,100);"  onKeyUp="limitText(this.form.description,this.form.countdown,100);"></textarea>
-                                    <p>(Maximum characters: 100) You have <input readonly type="text" name="countdown" size="3" value="100"> characters left.</p>
+                                    <textarea name="description" id="captionText" onKeyDown="limitText(this.form.description,this.form.countdown,160);"  onKeyUp="limitText(this.form.description,this.form.countdown,160);"></textarea>
+                                    <p class="error-message " style="display: none;"> This field is required*</p>
+                                    <p class="hastag-info">Must include <span>#GummiesTime</span></p>
+                                    <p>(Maximum characters: 100) You have <input readonly type="text" name="countdown" size="3" value="160"> characters left.</p>
                                 </div>
                             </div>
                             <div class="input-wrap">
@@ -177,108 +179,6 @@
             <div class="container">
                 <div class="video-gallery">
                     <ul>
-                        <li>
-                            <div class="vg-wrap active">
-                                <div class="vg-item">
-                                    <a href="#" class="play-btn" data-html-video="spark.mp4">
-                                        <div class="vg-thumg">
-                                            <img src="images/page_template/wing-video1.jpg" alt="">
-                                        </div>
-                                        <div class="vg-caption">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et #samplehastag </p>
-                                        </div>
-                                    </a>
-
-                                </div>
-                                <p class="vg-btn vg-like"><a href="#"><span><img src="images/page_template/like.png" alt=""></span> <strong>100</strong> Likes</a></p>
-                                <p class="vg-btn vg-share"><a href="#"><span><img src="images/page_template/share.png" alt=""></span> <strong>2</strong> Share</a></p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="vg-wrap">
-                                <div class="vg-item">
-                                    <a href="#" class="play-btn" data-html-video="">
-                                        <div class="vg-thumg">
-                                            <img src="images/page_template/wing-video1.jpg" alt="">
-                                        </div>
-                                        <div class="vg-caption">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  </p>
-                                        </div>
-                                    </a>
-
-                                </div>
-                                <p class="vg-btn vg-like"><a href="#"><span><img src="images/page_template/like.png" alt=""></span> <strong>100</strong> Likes</a></p>
-                                <p class="vg-btn vg-share"><a href="#"><span><img src="images/page_template/share.png" alt=""></span> <strong>2</strong> Share</a></p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="vg-wrap">
-                                <div class="vg-item">
-                                    <a href="#" class="play-btn" data-html-video="spark.mp4">
-                                        <div class="vg-thumg">
-                                            <img src="images/page_template/wing-video1.jpg" alt="">
-                                        </div>
-                                        <div class="vg-caption">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                                        </div>
-                                    </a>
-
-                                </div>
-                                <p class="vg-btn vg-like"><a href="#"><span><img src="images/page_template/like.png" alt=""></span> <strong>100</strong> Likes</a></p>
-                                <p class="vg-btn vg-share"><a href="#"><span><img src="images/page_template/share.png" alt=""></span> <strong>2</strong> Share</a></p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="vg-wrap">
-                                <div class="vg-item">
-                                    <a href="#" class="play-btn" data-html-video="spark.mp4">
-                                        <div class="vg-thumg">
-                                            <img src="images/page_template/wing-video1.jpg" alt="">
-                                        </div>
-                                        <div class="vg-caption">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, </p>
-                                        </div>
-                                    </a>
-
-                                </div>
-                                <p class="vg-btn vg-like"><a href="#"><span><img src="images/page_template/like.png" alt=""></span> <strong>100</strong> Likes</a></p>
-                                <p class="vg-btn vg-share"><a href="#"><span><img src="images/page_template/share.png" alt=""></span> <strong>2</strong> Share</a></p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="vg-wrap">
-                                <div class="vg-item">
-                                    <a href="#" class="play-btn" data-html-video="spark.mp4">
-                                        <div class="vg-thumg">
-                                            <img src="images/page_template/wing-video1.jpg" alt="">
-                                        </div>
-                                        <div class="vg-caption">
-                                            <p>Lorem ipsum dolor sit amet, consectetur  </p>
-                                        </div>
-                                    </a>
-
-                                </div>
-                                <p class="vg-btn vg-like"><a href="#"><span><img src="images/page_template/like.png" alt=""></span> <strong>100</strong> Likes</a></p>
-                                <p class="vg-btn vg-share"><a href="#"><span><img src="images/page_template/share.png" alt=""></span> <strong>2</strong> Share</a></p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="vg-wrap">
-                                <div class="vg-item">
-                                    <a href="#" class="play-btn" data-html-video="spark.mp4">
-                                        <div class="vg-thumg">
-                                            <img src="images/page_template/wing-video1.jpg" alt="">
-                                        </div>
-                                        <div class="vg-caption">
-                                            <p>Lorem ipsum dolor sit amet, </p>
-                                        </div>
-                                    </a>
-
-                                </div>
-                                <p class="vg-btn vg-like"><a href="#"><span><img src="images/page_template/like.png" alt=""></span> <strong>100</strong> Likes</a></p>
-                                <p class="vg-btn vg-share"><a href="#"><span><img src="images/page_template/share.png" alt=""></span> <strong>2</strong> Share</a></p>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -293,137 +193,5 @@
 <script src="js/app_script.js"></script>
 <script src="js/loader/script.js"></script>
 <script src="js/sticky/sticky.min.js"></script>
-
-<script type="text/javascript">
-    $('.menu ul li a').click(function(e){
-        e.preventDefault();
-        $('.menu li').removeClass('active');
-        $(this).closest('li').addClass('active');
-
-        var _this = $(this).attr('href');
-        $('.step-wrap').css({'display' : 'none'});
-        $(_this).css({'display' : 'block'});
-
-    });
-
-    $('.close-video').click(function(e){
-        e.preventDefault();
-
-        $('.popup-wrap').removeClass('active');
-        $('.video-holder video')[0].pause();
-    });
-
-    $('.play-btn').click(function(e){
-        e.preventDefault();
-        $('#video-wrap').addClass('active');
-        $('.video-holder').html('');
-    });
-
-    $('.play-btn').click(function(e){
-        e.preventDefault();
-
-        var videoUrl = $(this).attr('data-html-video');
-        var videoElem = '<video width="100%" height="100%" autoplay="true" preload="none">' +
-            '<source src="video/'+videoUrl+'" type="video/mp4">' +
-            '<source src="video/'+videoUrl+'" type="video/webm">' +
-            '</video>';
-        $('#video-wrap').addClass('active');
-
-        if($('.video-holder').children('*').size() > 0) {
-            $('.video-holder video')[0].play();
-        } else {
-            $('.video-holder').html(videoElem);
-        }
-
-
-        $(".video-holder video").bind("ended", function() {
-            console.log('end');
-            $('.video-holder video')[0].autoplay=false
-            $('#video-holder').removeClass('active');
-        });
-
-    });
-
-    $('.btn-cancel-modal').click( function(e) {
-        $(this).closest('.popup-wrap').removeClass('active');
-
-        e.preventDefault();
-    });
-
-    $('.btn-confirm-submit').click( function(e) {
-        e.preventDefault();
-        submitEntry();
-    });
-
-    $('#term-checkbox').change(function(){
-        if( $('#terms-checkbox').is(':checked'))
-            $('#terms-checkbox').closest('.custom-checkbox').removeClass('error')
-        else
-            $('#terms-checkbox').closest('.custom-checkbox').addClass('error');
-    });
-
-    $('.form-content form').submit(function(e){
-        e.preventDefault();
-        $('.form-content .input-wrap:not(.no-error)').addClass('error');
-        isvalidate = true;
-
-        if(!$('#complete-name').val() == '') {
-            $('#complete-name').closest('.input-wrap').removeClass('error');
-        } else {
-            isvalidate = false;
-        }
-
-        if(!$('#p-address').val() == '') {
-            $('#p-address').closest('.input-wrap').removeClass('error');
-        } else {
-            isvalidate = false;
-        }
-
-        if( IsEmail($('#email-add').val() )) {
-            $('#email-add').closest('.input-wrap').removeClass('error');
-        } else {
-            isvalidate = false;
-        }
-
-        if(!$('#contact-num').val() == '' && $('#contact-num').val().length==11) {
-            $('#contact-num').closest('.input-wrap').removeClass('error');
-        } else {
-            isvalidate = false;
-        }
-
-        if(!$('#upload-file').val()=='') {
-            $('#upload-file').closest('.input-wrap').removeClass('error');
-        } else {
-            isvalidate = false;
-        }
-
-        if( $('#term-checkbox').prop('checked')) {
-            $('#term-checkbox').closest('.input-wrap').removeClass('error');
-        } else {
-            $('#term-checkbox').closest('.input-wrap').addClass('error');
-            isvalidate = false;
-        }
-
-        if(isvalidate) {
-            $('.loading-spinner-wrapper').addClass('active');
-            $('#confirmation-submit').addClass('active');
-        }
-
-        return false;
-    });
-
-    function limitText(limitField, limitCount, limitNum) {
-        if (limitField.value.length > limitNum) {
-            limitField.value = limitField.value.substring(0, limitNum);
-        } else {
-            limitCount.value = limitNum - limitField.value.length;
-        }
-    }
-
-    function IsEmail(email) {
-        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        return regex.test(email);
-    }
-</script>
 </body>
 </html>
