@@ -207,10 +207,10 @@ function bindEvents() {
 
         if ($('#captionText').val() != '' && hastag) {
             $('#captionText').closest('.captionfield').removeClass('error');
-            $('.captionfield .error-message, .hastag-info').css({'display' : 'none'});
+            $('.captionfield .error-message').css({'display' : 'none'});
         } else {
             isvalidate = false;
-            $('.captionfield .error-message, .hastag-info').css({'display' : 'block'});
+            $('.captionfield .error-message').css({'display' : 'block'});
         }
 
         if(!$('#upload-file').val()=='') {
@@ -229,6 +229,10 @@ function bindEvents() {
         if(isvalidate) {
             $('.loading-spinner-wrapper').addClass('active');
             $('#confirmation-submit').addClass('active');
+        } else {
+            $.sticky('Please fill all fields!', {
+                'autoclose' : 5000
+            });
         }
 
         return false;
@@ -306,6 +310,10 @@ function likeEntry(entryId) {
                 getList();
             }).always( function() {
                 loader(modalLike, 0);
+            }).error( function() {
+                $.sticky('Something went wrong. Try again!', {
+                    'autoclose' : 5000
+                });
             });
         }
 
@@ -355,6 +363,10 @@ function shareEntry(entryId) {
                     getList();
                 }).always( function() {
                     loader(modalShare, 0);
+                }).error( function() {
+                    $.sticky('Something went wrong. Try again!', {
+                        'autoclose' : 5000
+                    });
                 });
             } else if(response.error_code && response.error_code==4201) {
                 loader(modalShare, 0);
@@ -416,20 +428,27 @@ function submitEntry() {
         data: formData,
         crossDomain: true,
         processData: false,
-        contentType: false,
-        success:function(data){
-            if(data.code==200){
-                enableScroll();
-                loader(modalSubmit, 0);
-                $(frmSection).find('form').trigger('reset');
+        contentType: false
+    }).done( function(data) {
+        if(data.code==200){
+            $(frmSection).find('form').trigger('reset');
 
+            $(modalThankYou).addClass('active');
+            $(modalSubmit).removeClass('active');
+        } else {
+            $(modalSubmit).removeClass('active');
 
-                $(modalThankYou).addClass('active');
-                $(modalSubmit).removeClass('active');
-            } else {
-
-            }
+            $.sticky('Something went wrong. Try again!', {
+                'autoclose' : 5000
+            });
         }
+    }).error(function() {
+        $.sticky('Something went wrong. Try again!', {
+            'autoclose' : 5000
+        });
+    }).always(function() {
+        enableScroll();
+        loader(modalSubmit, 0);
     });
 }
 
