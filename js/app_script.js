@@ -11,7 +11,7 @@ var modalThankYou = '#confirmation-thankyou';
 var modalSubmit = '#confirmation-submit';
 var modalLike = '#confirmation-like';
 var modalShare = '#confirmation-share';
-var serverHost = 'http://tools.propelrr.net/';
+var serverHost = getHost();
 var host = serverHost+"listener/poten-cee";
 var galleryActiveID = 0;
 
@@ -23,6 +23,13 @@ $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
         version: 'v2.10'
     });
 });
+
+function getHost() {
+    if(location.href.indexOf('local.potencee.com'))
+        return 'http://tools.propelrr.net/';
+
+    return 'https://tools.propelrr.com/';
+}
 
 function getList() {
     var url = host+'/getList';
@@ -169,6 +176,8 @@ function bindClicks() {
 
 
 function bindEvents() {
+    document.getElementById("upload-file").accept = "video/*"
+
     $('#term-checkbox').change(function(){
         if( $('#terms-checkbox').is(':checked'))
             $('#terms-checkbox').closest('.custom-checkbox').removeClass('error')
@@ -332,9 +341,8 @@ function shareEntry(entryId) {
 
         FB.ui({
             method: 'share',
-            href: 'https://ptc-campaign.herokuapp.com/fb-share-tags.html'
+            href: host+'/view?id='+entryId
         }, function(response) {
-            console.log(response)
             if (response && !response.error_code) {
                 var url = host + '/share';
 
@@ -432,6 +440,7 @@ function submitEntry() {
     }).done( function(data) {
         if(data.code==200){
             $(frmSection).find('form').trigger('reset');
+            $cmbRegions.trigger('change');
 
             $(modalThankYou).addClass('active');
             $(modalSubmit).removeClass('active');
@@ -507,12 +516,7 @@ var BATTUTA_KEY="00000000000000000000000000000000";
 // This is the country code
 var COUNTRY_CODE="ph";
 // Populate country select box from battuta API
-var URL_REGIONS="https://battuta.medunes.net/api/region/"
-    +COUNTRY_CODE
-    +"/search/"
-    +"?key="
-    +BATTUTA_KEY
-    +"&callback=?";
+var URL_REGIONS = host + '/getLocation?scope=province';
 
 $cmbRegions = $("#loc_region");
 $cmbCities = $("#loc_cities");
@@ -524,8 +528,8 @@ $.getJSON(URL_REGIONS,function(regions)
     //loop through regions..
     $.each(regions, function(key,region) {
         $("<option></option>")
-            .attr("value",region.region)
-            .append(region.region)
+            .attr("value",region.Id)
+            .append(region.Name)
             .appendTo($cmbRegions);
     });
     // trigger "change" to fire the #state section update process
@@ -533,15 +537,9 @@ $.getJSON(URL_REGIONS,function(regions)
 });
 
 $cmbRegions.on("change",function() {
-    var region=$cmbRegions.val();
+    var prov = $cmbRegions.val();
 
-    url="https://battuta.medunes.net/api/city/"
-    +COUNTRY_CODE
-    +"/search/?region="
-    +region
-    +"&key="
-    +BATTUTA_KEY
-    +"&callback=?";
+    url = host + '/getLocation?scope=city&province='+prov;
 
     $cmbCities.html("<option>Loading...</option>");
 
@@ -553,8 +551,8 @@ $cmbRegions.on("change",function() {
         //loop through regions..
         $.each(cities, function(key,city) {
             $("<option></option>")
-                .attr("value",i++)
-                .append(city.city)
+                .attr("value",city.Id)
+                .append(city.Name)
                 .appendTo($cmbCities);
         });
         // trigger "change" to fire the #state section update process

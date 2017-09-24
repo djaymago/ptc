@@ -19,7 +19,7 @@
     <script src="https://ptc-campaign.herokuapp.com/js/html5.js"></script>
 
     <style>
-        .separator-header { width: 70%; border: 1px solid #ccc; margin-bottom: 20px; }
+        .separator-header { width: 70%; border: 1px solid #eee; margin-bottom: 20px; }
     </style>
 </head>
 <body>
@@ -112,6 +112,7 @@
                         <form method="post" id="formEntry">
                             <input type="hidden" name="account_id" id="account_id" value="0">
                             <input type="hidden" name="status" id="status" value="-1">
+                            <input type="hidden" name="week" id="week_id" value="1">
                             <div class="input-wrap">
                                 <label for="complete-name">Complete Name:</label>
                                 <input id="complete-name" type="text" name="fullname" value="" placeholder="">
@@ -129,7 +130,7 @@
                                 <div class="present-add">
                                     <div class="input-row">
                                         <div class="input-half">
-                                            <label>Regions:</label>
+                                            <label>Province:</label>
                                             <select id="loc_region" name="region">
                                                 <option>Loading...</option>
                                             </select>
@@ -150,7 +151,7 @@
                                 <div class="file-upload">
                                     <label for="upload-file" class="file-upload__label">Choose File</label>
 
-                                    <input id="upload-file" class="file-upload__input" type="file" name="file_upload">
+                                    <input id="upload-file" class="file-upload__input" type="file" accept="video/*" name="file_upload">
                                 </div>
                                 <span class="required-file">You must upload a video atleast 10sec.</span>
                             </div>
