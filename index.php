@@ -35,7 +35,7 @@
     <div class="popup-wrap default-popup" id="confirmation-submit">
         <div class="popup-content">
             <h2>Are you sure you want to submit this entry?</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
+            <p>NOTE: We recomment you upload *.mp4 file for faster submission, otherwise it will take a minutes due to conversion.</p>
             <div class="text-center p-btn-wrapper">
                 <a href="#" class="btn btn-confirm-submit">Submit</a>
                 <a href="#" class="btn btn-ghost btn-cancel-modal">Cancel</a>
