@@ -71,12 +71,6 @@ function bindClicks() {
         $(modalThankYou).removeClass('active');
     });
 
-    $dom.on('click', btnGoGallery, function(e) {
-        e.preventDefault();
-        $('.menu').find('li:nth-child(2)').find('a').trigger('click');
-        $(sectComplete).css({'display':'block'});
-    });
-
     $dom.on('click', btnSubmitNew, function(e) {
         e.preventDefault();
         $(sectComplete).css({'display':'none'});
