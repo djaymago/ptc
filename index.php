@@ -99,10 +99,9 @@
                     </ul>
                 </div>
 
-                <div class="banner"><img src="https://ptc-campaign.herokuapp.com/images/banner.jpg" alt=""></div>
                 <div class="banner">
-                    <img class="desktop-banner" src="images/banner-final.gif" alt="">
-                    <img class="mobile-banner" src="images/banner-final-mobile.gif" alt="">
+                    <img class="desktop-banner" src="https://ptc-campaign.herokuapp.com/images/banner-final.gif" alt="">
+                    <img class="mobile-banner" src="https://ptc-campaign.herokuapp.com/images/banner-final-mobile.gif" alt="">
                 </div>
 
                 <div class="join-now-wrap text-center">
@@ -182,6 +181,33 @@
                             </div>
                         </form>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div id="upload-complete" class="step-wrap" style="display: none;">
+            <div class="container">
+                <div class="banner">
+                    <img class="desktop-banner" src="https://ptc-campaign.herokuapp.com/images/banner-final.gif" alt="">
+                    <img class="mobile-banner" src="https://ptc-campaign.herokuapp.com/images/banner-final-mobile.gif" alt="">
+                </div>
+                <div class="uc-content">
+                    <div class="uc-head">
+                        <div class="uc-img-wrap">
+                            <img src="images/upload-complete.jpg" alt="">
+                        </div>
+                        <div class="uc-text">
+                            <h2><img src="images/upload-complete-text.png" alt="Upload Complete"></h2>
+                            <p>Thanks for joining the Poten-Cee Gummies Fun Choice Awards!</p>
+                        </div>
+                    </div>
+
+                    <div class="clr"></div>
+                </div>
+                <div class="text-center"><p>You can send as many entries as you want for more chances of winning until <strong>November 15, 2017. </strong></p></div>
+                <div class="text-center p-btn-wrapper">
+                    <a href="#" class="btn btn-green btn-submit-new">Submit another</a>
+                    <a href="#" class="btn btn-go-gallery">Go to Gallery</a>
+
                 </div>
             </div>
         </div>

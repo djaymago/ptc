@@ -6,11 +6,14 @@ var btnLikeConf = '.btn-like-confirm';
 var btnShare = '.btn-share-click';
 var btnShareConf = '.btn-share-confirm';
 var btnGoGallery = '.btn-go-gallery';
+var btnSubmitNew = '. btn-submit-new';
 var frmSection = '.frm-section';
 var modalThankYou = '#confirmation-thankyou';
 var modalSubmit = '#confirmation-submit';
 var modalLike = '#confirmation-like';
 var modalShare = '#confirmation-share';
+
+var sectComplete = '#upload-complete';
 var serverHost = getHost();
 var host = serverHost+"listener/poten-cee";
 var galleryActiveID = 0;
@@ -71,7 +74,19 @@ function bindClicks() {
     $dom.on('click', btnGoGallery, function(e) {
         e.preventDefault();
         $('.menu').find('li:nth-child(2)').find('a').trigger('click');
-        $(modalThankYou).removeClass('active');
+        $(sectComplete).css({'display':'block'});
+    });
+
+    $dom.on('click', btnSubmitNew, function(e) {
+        e.preventDefault();
+        $(sectComplete).css({'display':'none'});
+        $('#step1').css({'display':'block'});
+    });
+
+    $dom.on('click', btnGoGallery, function(e) {
+        e.preventDefault();
+        $('.menu').find('li:nth-child(2)').find('a').trigger('click');
+        $(sectComplete).css({'display':'block'});
     });
 
     $dom.on('click', btnLike, function(e) {
@@ -447,7 +462,8 @@ function submitEntry() {
             $(frmSection).find('form').trigger('reset');
             $cmbRegions.trigger('change');
 
-            $(modalThankYou).addClass('active');
+            $(sectComplete).css({'display':'block'});
+            $('#step1').css({'display':'none'});
             $(modalSubmit).removeClass('active');
             message = 'Successfully submitted entry!';
         } else if(data.code==303) {
