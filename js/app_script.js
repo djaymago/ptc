@@ -25,7 +25,7 @@ $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
 });
 
 function getHost() {
-    console.log(location.href.indexOf('local.potencee.com'));
+    console.log(location.href, location.href.indexOf('local.potencee.com'));
 
     if(location.href.indexOf('local.potencee.com') > -1)
         return 'http://tools.propelrr.net/';
