@@ -438,19 +438,24 @@ function submitEntry() {
         processData: false,
         contentType: false
     }).done( function(data) {
+        var message;
         if(data.code==200){
             $(frmSection).find('form').trigger('reset');
             $cmbRegions.trigger('change');
 
             $(modalThankYou).addClass('active');
             $(modalSubmit).removeClass('active');
-        } else {
+            message = 'Successfully submitted entry!';
+        } else if(data.code==303) {
             $(modalSubmit).removeClass('active');
-
-            $.sticky('Something went wrong. Try again!', {
-                'autoclose' : 5000
-            });
+            message = data.message;
+        } else {
+            message = 'Something went wrong. Try again!';
         }
+
+        $.sticky(message, {
+            'autoclose' : 5000
+        });
     }).error(function() {
         $.sticky('Something went wrong. Try again!', {
             'autoclose' : 5000
