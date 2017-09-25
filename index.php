@@ -193,10 +193,10 @@
                 <div class="uc-content">
                     <div class="uc-head">
                         <div class="uc-img-wrap">
-                            <img src="images/upload-complete.jpg" alt="">
+                            <img src="https://ptc-campaign.herokuapp.com/images/upload-complete.jpg" alt="">
                         </div>
                         <div class="uc-text">
-                            <h2><img src="images/upload-complete-text.png" alt="Upload Complete"></h2>
+                            <h2><img src="https://ptc-campaign.herokuapp.com/images/upload-complete-text.png" alt="Upload Complete"></h2>
                             <p>Thanks for joining the Poten-Cee Gummies Fun Choice Awards!</p>
                         </div>
                     </div>
