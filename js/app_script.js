@@ -25,7 +25,8 @@ $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
 });
 
 function getHost() {
-    console.log(location.href);
+    console.log(location.href.indexOf('local.potencee.com'));
+
     if(location.href.indexOf('local.potencee.com'))
         return 'http://tools.propelrr.net/';
     else if(location.href.indexOf('ptc-campaign.herokuapp.com'))
