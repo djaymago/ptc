@@ -29,7 +29,7 @@ function getHost() {
 
     if(location.href.indexOf('local.potencee.com') > -1)
         return 'http://tools.propelrr.net/';
-    else if(location.href.indexOf('ptc-campaign.herokuapp.com') > -1)
+    else if(location.href.indexOf('ptc-campaign.herokuapp.com') > -1 || location.href.indexOf('raw2.statichtmlapp.com') > -1)
         return 'http://platform2016-stage.ap-southeast-1.elasticbeanstalk.com/';
 
     return 'https://tools.propelrr.com/';
