@@ -100,6 +100,10 @@
                 </div>
 
                 <div class="banner"><img src="https://ptc-campaign.herokuapp.com/images/banner.jpg" alt=""></div>
+                <div class="banner">
+                    <img class="desktop-banner" src="images/banner-final.gif" alt="">
+                    <img class="mobile-banner" src="images/banner-final-mobile.gif" alt="">
+                </div>
 
                 <div class="join-now-wrap text-center">
                     <a href="#" class="btn btn-large btn-green" data-text="Join Now!">Submit Entry Now!</a>
@@ -110,6 +114,7 @@
                     <hr>
                     <div class="form-content">
                         <form method="post" id="formEntry">
+                            <p style="font-size:12px; text-align: right; color: #d01e1e; margin-bottom:5px;">* ALL FIELDS MUST BE FILLED OUT CORRECTLY.</p>
                             <input type="hidden" name="account_id" id="account_id" value="0">
                             <input type="hidden" name="status" id="status" value="-1">
                             <input type="hidden" name="week" id="week_id" value="1">
