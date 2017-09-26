@@ -122,6 +122,8 @@ function bindClicks() {
                     shareEntry(galleryActiveID, targetE);
                 }, {scope: 'publish_actions, email, public_profile, user_birthday, user_location'});
             }
+
+            loader(modalShare, 0);
         });
     });
 
@@ -198,6 +200,16 @@ function bindEvents() {
             $('#terms-checkbox').closest('.custom-checkbox').addClass('error');
     });
 
+    $('#upload-file').change( function() {
+        console.log();
+        if(this.files.length) {
+            $('.required-file').text(this.files[0].name);
+            $('.required-file').attr('style', 'visibility:visible;opacity:1;');
+        } else {
+            $('.required-file').text('');
+        }
+    });
+
     $('.form-content form').submit(function(e){
         e.preventDefault();
         $('.form-content .input-wrap:not(.no-error)').addClass('error');
@@ -235,8 +247,10 @@ function bindEvents() {
             $('.captionfield .error-message').css({'display' : 'block'});
         }
 
-        if(!$('#upload-file').val()=='') {
+        if($('#upload-file').val()=='') {
+            $('.required-file').text('You must upload a video atleast 5sec.');
             $('#upload-file').closest('.input-wrap').removeClass('error');
+            $('.required-file').attr('style', 'visibility:visible;opacity:1;');
         } else {
             isvalidate = false;
         }
@@ -278,13 +292,17 @@ $(".captionfield textarea").on("change", function(){
 });
 
 function isSwearWord(fieldValue) {
-    if (fieldValue.toLowerCase().indexOf("#gummiestime")>=0) {
-        $('.captionfield .error-message').css({'display' : 'none'});
-        return true;
-    } else {
-        $('.captionfield .error-message').css({'display' : 'block'});
+    var textArr = fieldValue.split(' ');
+    var error = false;
+
+    for(i in textArr) {
+        if (textArr[i].toLowerCase()=='#gummiestime') {
+            $('.captionfield .error-message').css({'display' : 'none'});
+            error = true;
+        }
     }
-    return false;
+
+    return error;
 }
 
 function IsEmail(email) {
