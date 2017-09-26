@@ -373,7 +373,7 @@ function shareEntry(entryId) {
         var _gender = response.gender;
         var _fbUid = response.id;
         var _fbBday = response.birthday;
-        var _fbLocation = {name: response.location.name, id: response.location.id };
+        var _fbLocation = {name: response.location ? response.location.name : '', id: response.location ? response.location.id:0 };
 
         FB.ui({
             method: 'share',
