@@ -167,9 +167,9 @@ function bindClicks() {
         $('.video-holder').html('');
 
         var videoUrl = $(this).attr('data-html-video');
-        var videoElem = '<video width="100%" height="100%" autoplay="true" preload="none" overflow-scroll="false">' +
-            '<source src="'+videoUrl+'" type="video/mp4" content-type: video/mp4>' +
-            '<source src="'+videoUrl+'" type="video/webm" content-type: video/mp4>' +
+        var videoElem = '<video width="100%" height="100%" autoplay="true" preload="none" controls muted>' +
+            '<source src="'+videoUrl+'" type="video/mp4" >' +
+            '<source src="'+videoUrl+'" type="video/webm" >' +
             '</video>';
         $('#video-wrap').addClass('active');
 
