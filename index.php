@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <link rel="stylesheet" href="/css/style.css" media="all"/>
+    <link rel="stylesheet" href="https://ptc-campaign.herokuapp.com/css/style.css" media="all"/>
     <link rel="stylesheet" href="https://ptc-campaign.herokuapp.com/js/loader/style.css" media="all"/>
     <link rel="stylesheet" href="https://ptc-campaign.herokuapp.com/js/sticky/sticky.min.css" media="all"/>
 
@@ -122,7 +122,7 @@
                             </div>
                             <div class="input-wrap">
                                 <label for="contact-num">Contact Number: <span style="color: #d01e1e;">*</span></label>
-                                <input id="contact-num" type="tel" name="contact" value="" placeholder="(09) + 9 digits">
+                                <input id="contact-num" type="number" name="contact" value="" placeholder="(09) + 9 digits">
                             </div>
                             <div class="input-wrap">
                                 <label for="email-add">Email Address: <span style="color: #d01e1e;">*</span></label>
@@ -148,10 +148,6 @@
                                     <label>Address:</label>
                                     <input id="p-address" type="text" name="address" value="" placeholder="">
                                 </div>
-                            </div>
-                            <div class="input-wrap">
-                                <label>Present Address: <span style="color: #d01e1e;">*</span></label>
-                                <input id="p-address" type="text" name="address" value="" placeholder="">
                             </div>
                             <div class="input-wrap">
                                 <label>Upload Video: <span style="color: #d01e1e;">*</span></label>

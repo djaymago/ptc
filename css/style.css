@@ -276,12 +276,12 @@ a {
     display: inline-block;
     padding-top: 0;
     font-size: 13px; } }
-.input-wrap.error input[type="text"], .input-wrap.error input[type="email"], .input-wrap.error input[type="tel"], .input-wrap.error textarea {
+.input-wrap.error input[type="text"], .input-wrap.error input[type="email"], .input-wrap.error input[type="tel"], .input-wrap.error textarea,.input-wrap.error input[type="number"] {
   border-bottom: 1px solid #da1d23; }
 .input-wrap.error .required-file {
   opacity: 1;
   visibility: visible; }
-.input-wrap input[type="text"], .input-wrap input[type="email"], .input-wrap input[type="tel"], .input-wrap textarea {
+.input-wrap input[type="text"], .input-wrap input[type="email"], .input-wrap input[type="tel"], .input-wrap textarea,.input-wrap input[type="number"] {
   width: 440px;
   float: right;
   border: 1px solid #ccc;
@@ -291,7 +291,7 @@ a {
   outline: none;
   resize: none; }
 @media (max-width: 991px) {
-  .input-wrap input[type="text"], .input-wrap input[type="email"], .input-wrap input[type="tel"], .input-wrap textarea {
+  .input-wrap input[type="text"], .input-wrap input[type="email"], .input-wrap input[type="tel"], .input-wrap textarea,.input-wrap input[type="number"] {
     width: 100%;
     float: none;
     clear: both; } }
