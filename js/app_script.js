@@ -75,6 +75,8 @@ function bindClicks() {
         e.preventDefault();
         $(sectComplete).css({'display':'none'});
         $('#step1').css({'display':'block'});
+        $('.required-file').text('');
+        $('.required-file').attr('style', 'visibility:hidden;opacity:0;');
     });
 
     $dom.on('click', btnGoGallery, function(e) {
