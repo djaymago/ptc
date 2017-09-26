@@ -404,6 +404,9 @@ function shareEntry(entryId) {
                             'Error occurred. Please try again.'), {
                         'autoclose' : 5000
                     });
+
+                    if(response.code==200)
+                        $(modalShare).removeClass('active');
                     getList();
                 }).always( function() {
                     loader(modalShare, 0);
