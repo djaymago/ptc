@@ -1,0 +1,134 @@
+﻿<!doctype html>
+<html class="no-js" lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Poten Cee</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="css/style.css" media="all"/>
+
+<!--[if lt IE 9]> <script src="js/css3-mediaqueries.js"></script> <![endif]-->
+<script src="js/html5.js"></script>
+</head>
+<body>
+<section id="main-container">
+	<div class="popup-wrap" id="video-wrap">
+		<div class="popup-content">
+			<a href="#" class="close-video"><img src="images/page_template/close.png" alt=""></a>
+			<div class="video-holder">
+				
+			</div>
+		</div>
+	</div>
+
+	<section id="main-wrapper">
+		<div id="step1" class="step-wrap"  style="display: block;">
+			<div class="container">
+				<div class="head-title" style="padding-top: 10px;">
+					<h1 class="text-center">The Gummies Fun Choice Awards</h1>
+				</div>
+
+				<div class="banner">
+					<img class="desktop-banner" src="images/banner-final.gif" alt="">
+					<img class="mobile-banner" src="images/banner-final-mobile.gif" alt="">
+				</div>
+			</div>
+		</div>
+		<div id="step2" class="step-wrap" style="display: block;">
+			<div class="container">
+				<div class="video-gallery video-gallery-shared">
+					<ul>
+						<li>
+							<div class="vg-wrap active">
+								<div class="vg-item">
+									<a href="#" class="play-btn" data-html-video="spark.mp4">
+										<div class="vg-thumg">
+											<img src="images/banner.jpg" alt="">
+										</div>
+										<div class="vg-caption">
+											<p><strong>Elwin T. Dela Cruz</strong></p>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et #samplehastag </p>
+										</div>
+									</a>
+
+								</div>
+								<p class="vg-btn vg-like"><a href="#"><span><img src="images/page_template/like.png" alt=""></span> <strong>100</strong> Likes</a></p>
+								<p class="vg-btn vg-share"><a href="#"><span><img src="images/page_template/share.png" alt=""></span> <strong>2</strong> Share</a></p>
+
+								
+							</div>
+						</li>
+						
+					</ul>
+				</div>
+
+                <div class="join-now-wrap text-center">
+                    <p>You can send as many Poten-Cee Gummies Fun Choice entries as you want for more chances of winning until <strong>November 15, 2017.</strong></p>
+                    <a href="#" class="btn btn-large btn-green">Join Now!</a>
+                </div>
+			</div>
+		</div>
+	</section>
+</section>
+<footer></footer>
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/jquery-ui.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/custom.js"></script>
+
+<script type="text/javascript">
+	
+	$('.menu ul li a').click(function(e){
+		e.preventDefault();
+		$('.menu li').removeClass('active');
+		$(this).closest('li').addClass('active');
+
+		var _this = $(this).attr('href');
+		$('.step-wrap').css({'display' : 'none'});
+		$(_this).css({'display' : 'block'});
+
+	});
+
+	$('.close-video').click(function(e){
+		e.preventDefault();
+
+		$('.popup-wrap').removeClass('active');	
+		$('.video-holder video')[0].pause();
+	});
+
+	$('.play-btn').click(function(e){
+		e.preventDefault();
+		$('#video-wrap').addClass('active');
+		$('.video-holder').html('');	
+	});
+
+	$('.play-btn').click(function(e){
+		e.preventDefault();
+
+		var videoUrl = $(this).attr('data-html-video');
+		var videoElem = '<video width="100%" height="100%" autoplay="true" preload="none">' +
+	                    '<source src="video/'+videoUrl+'" type="video/mp4">' +
+	                   	'<source src="video/'+videoUrl+'" type="video/webm">' +
+	                    '</video>';
+	    $('#video-wrap').addClass('active');
+
+	    if($('.video-holder').children('*').size() > 0) {
+	    	$('.video-holder video')[0].play();
+	    } else {
+	    	$('.video-holder').html(videoElem);	
+	    }
+
+
+	    $(".video-holder video").bind("ended", function() {
+			console.log('end');
+			$('.video-holder video')[0].autoplay=false
+			$('#video-holder').removeClass('active');
+		});
+
+	})
+
+</script>
+</body>
+</html>
