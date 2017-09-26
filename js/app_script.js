@@ -247,11 +247,12 @@ function bindEvents() {
             $('.captionfield .error-message').css({'display' : 'block'});
         }
 
+        console.log($('#upload-file').val())
         if($('#upload-file').val()=='') {
             $('.required-file').text('You must upload a video atleast 5sec.');
             $('#upload-file').closest('.input-wrap').removeClass('error');
             $('.required-file').attr('style', 'visibility:visible;opacity:1;');
-        } else {
+
             isvalidate = false;
         }
 

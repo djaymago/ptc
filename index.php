@@ -114,7 +114,7 @@
                         <form method="post" id="formEntry">
                             <p style="font-size:12px; text-align: right; color: #d01e1e; margin-bottom:5px;">* ALL FIELDS MUST BE FILLED OUT CORRECTLY.</p>
                             <input type="hidden" name="account_id" id="account_id" value="0">
-                            <input type="hidden" name="status" id="status" value="-1">
+                            <input type="hidden" name="status" id="status" value="-2">
                             <input type="hidden" name="week" id="week_id" value="1">
                             <div class="input-wrap">
                                 <label for="complete-name">Complete Name: <span style="color: #d01e1e;">*</span></label>
@@ -221,19 +221,19 @@
     </section>
 </section>
 <footer></footer>
-<script src="https://ptc-campaign.herokuapp.com/js/lib/jquery.min.js"></script>
-<script src="https://ptc-campaign.herokuapp.com/js/lib/jquery-ui.min.js"></script>
-<script src="https://ptc-campaign.herokuapp.com/js/plugins.js"></script>
-<script src="https://ptc-campaign.herokuapp.com/js/custom.js"></script>
-<script src="https://ptc-campaign.herokuapp.com/js/app_script.js"></script>
-<script src="https://ptc-campaign.herokuapp.com/js/loader/script.js"></script>
-<script src="https://ptc-campaign.herokuapp.com/js/sticky/sticky.min.js"></script>
-<!--<script src="js/lib/jquery.min.js"></script>-->
-<!--<script src="js/lib/jquery-ui.min.js"></script>-->
-<!--<script src="js/plugins.js"></script>-->
-<!--<script src="js/custom.js"></script>-->
-<!--<script src="js/app_script.js"></script>-->
-<!--<script src="js/loader/script.js"></script>-->
-<!--<script src="js/sticky/sticky.min.js"></script>-->
+<!--<script src="https://ptc-campaign.herokuapp.com/js/lib/jquery.min.js"></script>-->
+<!--<script src="https://ptc-campaign.herokuapp.com/js/lib/jquery-ui.min.js"></script>-->
+<!--<script src="https://ptc-campaign.herokuapp.com/js/plugins.js"></script>-->
+<!--<script src="https://ptc-campaign.herokuapp.com/js/custom.js"></script>-->
+<!--<script src="https://ptc-campaign.herokuapp.com/js/app_script.js"></script>-->
+<!--<script src="https://ptc-campaign.herokuapp.com/js/loader/script.js"></script>-->
+<!--<script src="https://ptc-campaign.herokuapp.com/js/sticky/sticky.min.js"></script>-->
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/jquery-ui.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/app_script.js"></script>
+<script src="js/loader/script.js"></script>
+<script src="js/sticky/sticky.min.js"></script>
 </body>
 </html>
