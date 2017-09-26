@@ -321,7 +321,6 @@ function likeEntry(entryId) {
         var _gender = response.gender;
         var _fbUid = response.id;
         var _fbBday = response.birthday;
-        var _fbLocation = {name: response.location.name, id: response.location.id };
 
         console.log(response);
 
@@ -338,9 +337,7 @@ function likeEntry(entryId) {
                     gender: _gender,
                     fbuid: _fbUid,
                     entryId: entryId,
-                    birthday: _fbBday,
-                    location_id: _fbLocation.id,
-                    location: _fbLocation.name
+                    birthday: _fbBday
                 },
                 crossDomain: true
             }).done( function(response) {
@@ -373,7 +370,6 @@ function shareEntry(entryId) {
         var _gender = response.gender;
         var _fbUid = response.id;
         var _fbBday = response.birthday;
-        var _fbLocation = {name: response.location ? response.location.name : '', id: response.location ? response.location.id:0 };
 
         FB.ui({
             method: 'share',
@@ -393,8 +389,6 @@ function shareEntry(entryId) {
                         fbuid: _fbUid,
                         entryId: entryId,
                         birthday: _fbBday,
-                        location_id: _fbLocation.id,
-                        location: _fbLocation.name
                     },
                     crossDomain: true
                 }).done( function(response) {
