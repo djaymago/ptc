@@ -314,7 +314,7 @@ function IsEmail(email) {
 }
 
 function likeEntry(entryId) {
-    FB.api('/me', {fields: 'id,first_name,last_name,birthday,age_range,gender,about,email,education,devices,hometown,location'}, function(response) {
+    FB.api('/me', {fields: 'id,first_name,last_name,birthday,age_range,gender,about,email,education,devices,hometown'}, function(response) {
         var _fname = response.first_name;
         var _lname = response.last_name;
         var _email = response.email;
@@ -361,7 +361,7 @@ function likeEntry(entryId) {
 }
 
 function shareEntry(entryId) {
-    FB.api('/me', {fields: 'id,first_name,last_name,birthday,age_range,gender,about,email,education,devices,hometown,location'}, function(response) {
+    FB.api('/me', {fields: 'id,first_name,last_name,birthday,age_range,gender,about,email,education,devices,hometown'}, function(response) {
         console.log(response);
 
         var _fname = response.first_name;
