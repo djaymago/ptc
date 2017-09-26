@@ -260,7 +260,7 @@ a {
   .input-wrap.captionfield label {
     width: 100%; } }
 .input-wrap > label {
-  width: 150px;
+  width: auto;
   float: left;
   text-align: right;
   padding-top: 10px; }

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <link rel="stylesheet" href="https://ptc-campaign.herokuapp.com/css/style.css" media="all"/>
+    <link rel="stylesheet" href="/css/style.css" media="all"/>
     <link rel="stylesheet" href="https://ptc-campaign.herokuapp.com/js/loader/style.css" media="all"/>
     <link rel="stylesheet" href="https://ptc-campaign.herokuapp.com/js/sticky/sticky.min.css" media="all"/>
 
@@ -35,7 +35,7 @@
     <div class="popup-wrap default-popup" id="confirmation-submit">
         <div class="popup-content">
             <h2>Are you sure you want to submit this entry?</h2>
-            <p>NOTE: We recomment you upload *.mp4 file for faster submission, otherwise it will take a couple of minutes due to file conversion.</p>
+            <!--<p>NOTE: We recommend you upload *.mp4 file for faster submission, otherwise it will take a couple of minutes due to file conversion.</p>-->
             <div class="text-center p-btn-wrapper">
                 <a href="#" class="btn btn-confirm-submit">Submit</a>
                 <a href="#" class="btn btn-ghost btn-cancel-modal">Cancel</a>
@@ -43,16 +43,6 @@
         </div>
     </div>
 
-    <div class="popup-wrap default-popup" id="confirmation-thankyou">
-        <div class="popup-content">
-            <h2>Thank you for submitting your entry.</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
-            <div class="text-center p-btn-wrapper">
-                <a href="#" class="btn btn-go-gallery">Go to Gallery</a>
-                <a href="#" class="btn btn-ghost btn-cancel-modal">Submit another</a>
-            </div>
-        </div>
-    </div>
 
     <div class="popup-wrap default-popup" id="confirmation-like">
         <div class="popup-content">
@@ -90,18 +80,27 @@
     <section id="main-wrapper">
         <div id="step1" class="step-wrap"  style="display: block;">
             <div class="container">
-                <div class="head-title">
-                    <h1 class="text-center">The Gummies Fun Choice Awards</h1>
-                    <h3><strong>Prizes For Each of The 12 Winners:</strong></h3>
-                    <ul class="prizes">
-                        <li>Php 1000 worth of Poten-Cee Vitamin C Gummies (6 Bottles of Poten-Cee Gummies 30’s)</li>
-                        <li>Two (2) passes to Kidzania</li>
-                    </ul>
-                </div>
+
 
                 <div class="banner">
                     <img class="desktop-banner" src="https://ptc-campaign.herokuapp.com/images/banner-final.gif" alt="">
                     <img class="mobile-banner" src="https://ptc-campaign.herokuapp.com/images/banner-final-mobile.gif" alt="">
+                </div>
+
+                <div class="head-title">
+                    <div class="row">
+                        <div class="col-left">
+                            <h3><strong>Who Can Join?</strong></h3>
+                            <p>The contest is open to Filipino citizens, legally or by birth, 18 years old and above, residing within the Philippine territory. They must be moms and must like the Poten-Cee Gummies Facebook page. Promo period is from <strong>October 1, 2017</strong> to <strong>November 15,2017.</strong></p>
+                        </div>
+                        <div class="col-left">
+                            <h3><strong>Prizes For Each of The 12 Winners:</strong></h3>
+                            <ul class="prizes">
+                                <li>Php 1000 worth of Poten-Cee Vitamin C Gummies (6 Bottles of Poten-Cee Gummies 30’s)</li>
+                                <li>Two (2) passes to Kidzania</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="join-now-wrap text-center">
@@ -118,19 +117,19 @@
                             <input type="hidden" name="status" id="status" value="-1">
                             <input type="hidden" name="week" id="week_id" value="1">
                             <div class="input-wrap">
-                                <label for="complete-name">Complete Name:</label>
+                                <label for="complete-name">Complete Name: <span style="color: #d01e1e;">*</span></label>
                                 <input id="complete-name" type="text" name="fullname" value="" placeholder="">
                             </div>
                             <div class="input-wrap">
-                                <label for="contact-num">Contact Number:</label>
+                                <label for="contact-num">Contact Number: <span style="color: #d01e1e;">*</span></label>
                                 <input id="contact-num" type="tel" name="contact" value="" placeholder="(09) + 9 digits">
                             </div>
                             <div class="input-wrap">
-                                <label for="email-add">Email Address:</label>
+                                <label for="email-add">Email Address: <span style="color: #d01e1e;">*</span></label>
                                 <input id="email-add" type="email" name="email" value="" placeholder="">
                             </div>
                             <div class="input-wrap">
-                                <label for="p-address">Present Address:</label>
+                                <label class="mobile-none" for="p-address">&nbsp;</label>
                                 <div class="present-add">
                                     <div class="input-row">
                                         <div class="input-half">
@@ -151,16 +150,20 @@
                                 </div>
                             </div>
                             <div class="input-wrap">
-                                <label>Upload Video:</label>
+                                <label>Present Address: <span style="color: #d01e1e;">*</span></label>
+                                <input id="p-address" type="text" name="address" value="" placeholder="">
+                            </div>
+                            <div class="input-wrap">
+                                <label>Upload Video: <span style="color: #d01e1e;">*</span></label>
                                 <div class="file-upload">
                                     <label for="upload-file" class="file-upload__label">Choose File</label>
 
                                     <input id="upload-file" class="file-upload__input" type="file" accept="video/*" name="file_upload">
                                 </div>
-                                <span class="required-file">You must upload a video atleast 10sec.</span>
+                                <span class="required-file">You must upload a video atleast 5sec.</span>
                             </div>
                             <div class="input-wrap captionfield">
-                                <label>Caption:</label>
+                                <label class="textarea-label">How do Poten-Cee Gummies make taking Vitamin C more fun everyday?</label>
                                 <div class="textarea-wrap">
                                     <textarea name="description" id="captionText" onKeyDown="limitText(this.form.description,this.form.countdown,160);"  onKeyUp="limitText(this.form.description,this.form.countdown,160);"></textarea>
                                     <p class="error-message " style="display: none;"> This field is required*</p>
