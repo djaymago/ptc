@@ -80,7 +80,7 @@ function bindClicks() {
     $dom.on('click', btnGoGallery, function(e) {
         e.preventDefault();
         $('.menu').find('li:nth-child(2)').find('a').trigger('click');
-        $(sectComplete).css({'display':'block'});
+        $(sectComplete).css({'display':'none'});
     });
 
     $dom.on('click', btnLike, function(e) {
