@@ -122,7 +122,7 @@
                             </div>
                             <div class="input-wrap">
                                 <label for="contact-num">Contact Number: <span style="color: #d01e1e;">*</span></label>
-                                <input id="contact-num" type="number" name="contact" value="" placeholder="(09) + 9 digits">
+                                <input id="contact-num" type="tel" name="contact" value="" placeholder="(09) + 9 digits" onkeypress="return event.charCode === 0 || /[\d-+=,()]/.test(String.fromCharCode(event.charCode));">
                             </div>
                             <div class="input-wrap">
                                 <label for="email-add">Email Address: <span style="color: #d01e1e;">*</span></label>

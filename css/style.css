@@ -654,7 +654,8 @@ a {
   width: 100%;
   padding-bottom: 70%;
   height: 0;
-  position: relative; }
+  position: relative;
+  background: url("https://ptc-campaign.herokuapp.com/images/giphy.gif") no-repeat center center; }
 
 .video-holder video {
   position: absolute;
