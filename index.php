@@ -214,6 +214,11 @@
                 <div class="video-gallery">
                     <ul>
                     </ul>
+
+                    <div class="text-center" style="margin-top:25px; opacity:0;">
+                        <a href="#" class="btn btn-grey load-more">Load More</a>
+                        <div class="wavy-loader"><span></span><span></span><span></span></div>
+                    </div>
                 </div>
             </div>
         </div>
