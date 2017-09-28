@@ -51,7 +51,7 @@ function getList(reset) {
     $.ajax({
         url: url,
         type: 'POST',
-        data: { pageNum: (((page-1)*limit)+1), limit: limit }
+        data: { pageNum: (((page-1)*limit)), limit: limit }
     }).done( function(data) {
 
         $loader.removeClass('active');
