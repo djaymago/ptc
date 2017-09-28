@@ -18,6 +18,11 @@ var serverHost = getHost();
 var host = serverHost+"listener/poten-cee";
 var galleryActiveID = 0;
 
+var page = 1;
+var limit = 9;
+var btnLoadMore = '.load-more';
+$loader = $('.wavy-loader');
+
 var hastag;
 
 $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
@@ -38,21 +43,33 @@ function getHost() {
     return 'https://tools.propelrr.com/';
 }
 
-function getList() {
+function getList(reset) {
     var url = host+'/getList';
+
+    $loader.addClass('active');
 
     $.ajax({
         url: url,
         type: 'POST',
-        data: {},
-        crossDomain: true,
-        processData: false,
-        contentType: false
+        data: { pageNum: (((page-1)*limit)+1), limit: limit }
     }).done( function(data) {
+
+        $loader.removeClass('active');
+
         var entryDiv = $('.video-gallery ul');
-        entryDiv.html(data.list);
-        if(data.list=='') {
+
+        if(reset)
+            entryDiv.empty();
+
+        entryDiv.append(data.list);
+        if(!data.total) {
             entryDiv.html('<div style="text-align: center;">There\'s no entry yet.<br><br>Be the first to submit your entry and get a chance to win the prize!</div>');
+        }
+
+        if(data.total>(limit * page)) {
+            $(btnLoadMore).removeClass('hide');
+        } else {
+            $(btnLoadMore).addClass('hide');
         }
     }).always( function(data) {
     });
@@ -130,7 +147,16 @@ function bindClicks() {
     });
 
     $dom.on('click', '.btn-gallery-nav', function() {
+        //getList();
+    });
+
+    $dom.on('click', btnLoadMore, function(e) {
+        $(this).addClass('hide');
+
+        page = page+1;
         getList();
+
+        e.preventDefault();
     });
 
     $('.menu ul li a').click(function(e){
