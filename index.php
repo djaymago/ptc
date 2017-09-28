@@ -70,8 +70,8 @@
         <div class="container">
             <div class="menu text-center">
                 <ul>
-                    <li class="active"><a href="#step1">Submit Your Entry</a></li>
-                    <li><a class="btn-gallery-nav" href="#step2">Video Gallery</a></li>
+                    <li class="active"><a href="#step1" class="btn btn-orange">Submit Your Entry</a></li>
+                    <li><a class="btn-gallery-nav" href="#step2" class="btn btn-grey">Video Gallery</a></li>
                 </ul>
             </div>
         </div>
@@ -108,7 +108,7 @@
                 </div>
 
                 <div class="form-wrapper frm-section" style="display:none;">
-                    <h2 class="text-center">Dear Mommies, Please fill out the form below to enter</h2>
+                    <h2 class="text-left" style="max-width: 500px; margin: 0 auto 15px;">Dear Mommies, <br>To enter, please fill out the form below to enter</h2>
                     <hr>
                     <div class="form-content">
                         <form method="post" id="formEntry">
@@ -159,7 +159,7 @@
                                 <span class="required-file">You must upload a video atleast 5sec.</span>
                             </div>
                             <div class="input-wrap captionfield">
-                                <label class="textarea-label">How do Poten-Cee Gummies make taking Vitamin C more fun everyday?</label>
+                                <label class="textarea-label">How do <br>Poten-Cee Gummies <br>make taking Vitamin C <br>more fun everyday?</label>
                                 <div class="textarea-wrap">
                                     <textarea name="description" id="captionText" onKeyDown="limitText(this.form.description,this.form.countdown,160);"  onKeyUp="limitText(this.form.description,this.form.countdown,160);"></textarea>
                                     <p class="error-message " style="display: none;"> This field is required*</p>
@@ -171,7 +171,7 @@
                                 <label>&nbsp;</label>
                                 <div class="custom-checkbox">
                                     <input type="checkbox" id="term-checkbox"/>
-                                    <label for="term-checkbox">I accept terms and conditions</label>
+                                    <label for="term-checkbox">I accept Terms and Conditions</label>
                                 </div>
                             </div>
                             <div class="input-wrap">
@@ -196,17 +196,16 @@
                         </div>
                         <div class="uc-text">
                             <h2><img src="https://ptc-campaign.herokuapp.com/images/upload-complete-text.png" alt="Upload Complete"></h2>
-                            <p>Thanks for joining the Poten-Cee Gummies Fun Choice Awards!</p>
+                            <p>Thanks for joining <br>The Poten-Cee Gummies <br>Fun Choice Awards!</p>
                         </div>
                     </div>
 
                     <div class="clr"></div>
                 </div>
-                <div class="text-center"><p>You can send as many entries as you want for more chances of winning until <strong>November 15, 2017. </strong></p></div>
+                <div class="text-center"><p>You can send as many entries as you want until <strong>November 15, 2017. </strong></p></div>
                 <div class="text-center p-btn-wrapper">
-                    <a href="#" class="btn btn-green btn-submit-new">Submit another</a>
-                    <a href="#" class="btn btn-go-gallery">Go to Gallery</a>
-
+                    <a href="#" class="btn btn-green btn-submit-new">Submit Another</a>
+                    <a href="#" class="btn btn-grey btn-go-gallery">Go to Gallery</a>
                 </div>
             </div>
         </div>
