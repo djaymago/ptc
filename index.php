@@ -71,7 +71,7 @@
             <div class="menu text-center">
                 <ul>
                     <li class="active"><a href="#step1" class="btn btn-orange">Submit Your Entry</a></li>
-                    <li><a class="btn-gallery-nav" href="#step2" class="btn btn-grey">Video Gallery</a></li>
+                    <li><a class="btn-gallery-nav btn btn-grey"" href="#step2">Video Gallery</a></li>
                 </ul>
             </div>
         </div>
