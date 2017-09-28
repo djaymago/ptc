@@ -373,7 +373,7 @@ function likeEntry(entryId) {
                         'Error occurred. Please try again.'), {
                     'autoclose' : 5000
                 });
-                getList();
+                getList(1);
             }).always( function() {
                 loader(modalLike, 0);
             }).error( function() {
@@ -427,7 +427,7 @@ function shareEntry(entryId) {
 
                     if(response.code==200)
                         $(modalShare).removeClass('active');
-                    getList();
+                    getList(1);
                 }).always( function() {
                     loader(modalShare, 0);
                 }).error( function() {
