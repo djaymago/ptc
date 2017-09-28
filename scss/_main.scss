@@ -42,13 +42,29 @@ a {
 }
 
 .banner {
-	margin-bottom: 25px;
+	margin-bottom: 20px;
+
 
 	img {
 
 		width: 100%;
 		height: auto;
+	}
+
+	.desktop-banner {
 		display: block;
+
+		@include breakpoint(tablet2) {
+			display: none;
+		}
+	}
+
+	.mobile-banner {
+		display: none;
+
+		@include breakpoint(tablet2) {
+			display: block;
+		}
 	}
 }
 
@@ -71,7 +87,6 @@ a {
 }
 
 .prizes {
-	margin-top: 15px;
 	margin-bottom: 10px;
 
 	li {
@@ -79,14 +94,9 @@ a {
 		padding-left: 30px;
 		position: relative;
 		margin-bottom: 5px;
-		font-size: 18px;
 
-		@include breakpoint(tablet) {
-			font-size: 16px;
-		}
 
 		@include breakpoint(tablet2) {
-			font-size: 14px;
 			padding-left: 20px;
 		}
 
@@ -97,7 +107,7 @@ a {
 			height: 8px;
 			border-radius: 50%;
 			position: absolute;
-			top: 8px;
+			top: 4px;
 			left: 8px;
 			background: $coOrange;
 
@@ -114,8 +124,23 @@ a {
 .form-content {
 	background: #fafafa;
 	padding: 30px 20px;
+	position: relative;
 
-	@include breakpoint(tablet) {
+	&.loading {
+		&:before {
+			content:'';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: transparent;
+			z-index: 1001;
+		}
+
+	}
+
+	@include breakpoint(tablet2) {
 		padding: 20px 10px;
 	}
 
@@ -160,13 +185,28 @@ a {
 		clear: both;
 	}
 
+	&.captionfield {
+
+		label {
+
+			@include breakpoint(tablet2) {
+				width: 100%;	
+			}
+			
+		}
+	}
+
 	> label {
-		min-width: 150px;
+		width: 150px;
 		float: left;
 		text-align: right;
 		padding-top: 10px;
 
-		@include breakpoint(tablet) {
+		&.textarea-label {
+			padding-top: 0;
+		}
+
+		@include breakpoint(tablet2) {
 			min-width: auto;
 			float: none;
 			clear: both;
@@ -198,8 +238,11 @@ a {
 		font-size: 14px;
 		outline: none;
 		resize: none;
+		-webkit-appearance: none;
+	    -moz--appearance: none;
+	    appearance: none;
 
-		@include breakpoint(tablet) {
+		@include breakpoint(tablet2) {
 			width: 100%;
 			float: none;
 			clear: both;
@@ -223,8 +266,11 @@ a {
 	    margin-top: 20px;
 	    font-size: 16px;
 	    outline: none;
+	    -webkit-appearance: none;
+	    -moz--appearance: none;
+	    appearance: none;
 
-	    @include breakpoint(tablet) {
+	    @include breakpoint(tablet2) {
 	    	width: 100%;
 	    	float: none;
 	    	clear: both;
@@ -260,13 +306,84 @@ a {
 	float: left;
 	margin-top: 10px;
 
-	@include breakpoint(tablet) {
+	@include breakpoint(tablet2) {
 		margin-left: 0;
 	}
 }
 
 .step-wrap {
 	display: none;
+}
+
+
+.uc-img-wrap {
+	width: 145px;
+	height: 145px;
+	border-radius: 50%;
+	float: left;
+	margin-right: 20px;
+
+	@include breakpoint(tablet2) {
+		width: 70px;
+		height: 70px;
+		float: none;
+		margin-right: auto;
+		margin-left: auto;
+		margin-top: 20px;
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+}
+
+.uc-content {
+	max-width: 619px;
+	margin: 40px auto;
+}
+
+.uc-head {
+
+	h2 {
+		font-family: $fontA;
+		font-size: 50px;
+		padding-top: 20px;
+		margin-bottom: 5px;
+		letter-spacing: 0px;
+		word-spacing: 6px;
+
+		@include breakpoint(tablet2) {
+			font-size: 32px;
+			margin-top: 10px;
+			text-align: center;
+			padding-top: 0;
+		}
+
+		img {
+			display: block;
+			max-width: 100%;
+		}
+	}
+
+	p {
+		font-size: 24px;
+
+		@include breakpoint(tablet2) {
+			font-size: 16px;
+			text-align: center;
+		}
+	}
+}
+
+.uc-text {
+
+	padding-left: 165px;
+
+	@include breakpoint(tablet2) {
+		padding-left: 0;
+	}
 }
 
 .video-gallery {
@@ -316,19 +433,168 @@ a {
 	}
 }
 
-.textarea-wrap {
+.video-gallery-cms {
+
+	.vg-btn {
+		padding-left: 0;
+		padding: 0;
+	}
+
+	.vg-wrap {
+		position: relative;
+	}
+
+	.vg-btn img {
+		display: none;
+	}
+
+	.engagement {
+
+		min-width: 70px;
+		border: 1px solid $coOrange;
+		padding: 0px 5px 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		background: $coWhite;
+
+		span {
+			display: block;
+			font-size: 10px;
+			font-weight: 300;
+			text-align: center;
+			background: $coOrange;
+			margin: 0px -5px;
+			color: $coWhite;
+			padding-top: 5px;
+			padding-bottom: 5px;
+
+			&.engage-value {
+				font-size: 16px;
+				font-weight: 700;
+				margin: 0;
+				padding: 8px 0;
+				background: $coWhite;
+				color: $defaultColor
+			}
+		}
+	}
+
+	.custom-checkbox [type="checkbox"]:not(:checked) + label:before, .custom-checkbox [type="checkbox"]:checked + label:before {
+		border: 2px solid #ccc;
+	}
+}
+
+.video-gallery-shared {
+
+	ul {
+		text-align: center;
+
+		li {
+			display: inline-block;
+			float: none;
+			clear: both;
+			text-align: center;
+		}
+	}
+}
+
+.floating-checkbox  {
+	position: absolute;
+    top: 0;
+    left: -1px;
+    background: #fff;
+    padding: 10px;
+    width: 45px;
+    border: 1px solid $coOrange;
+
+    .custom-checkbox {
+    	margin-top: 0;
+    	margin-left: 0;
+    }
+}
+
+.error-message {
+	color: $coRed;
+}
+
+.input-half {
+	width: 50%;
+	float: left;
+	padding: 0px 10px;
+
+	label {
+		margin-bottom: 2px;
+		display: inline-block;
+		padding-top: 0;
+		font-size: 13px;
+	}
+
+	select {
+		width: 100%;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		padding: 5px;
+		height: 33px;
+		background: $coWhite;
+		outline: none;
+		font-size: 14px;
+
+	}
+}
+
+.input-row {
+	clear: both;
+	float: none;
+	margin: 0 -10px 0;
+	padding-top: 5px;
+
+	&:after {
+		content:'';
+		display: block;
+		float: none;
+		clear: both;
+	}
+}
+
+.mobile-none {
+
+	@include breakpoint(tablet2) {
+		display: none !important;
+	}
+}
+
+.textarea-wrap, .present-add {
 	position: relative;
 	float: left;
 	width: 440px;
 	margin-left: 10px;
 
-	@include breakpoint(tablet) {
+	@include breakpoint(tablet2) {
 		width: 100%;
 		margin-left: 0;
+
 	}
 
 	p {
 		font-size: 12px;
+		text-align: right;
+
+		@include breakpoint(tablet2) {
+			text-align: left;
+		}
+
+
+		&.hastag-info {
+			padding-top: 5px;
+			float: none;
+			clear: both;
+
+			span {
+				color: $coOrange;
+			}
+		}
 
 		input[type="text"] {
 			display: inline-block;
@@ -365,10 +631,46 @@ a {
 
 }
 
+.row {
+	margin: 0px -15px;
+
+	&:after, &:before {
+		content:'';
+		display: block;
+		float: none;
+		clear: both;
+	}
+}
+
+.col-left {
+	width: 50%;
+	float: left;
+	padding: 0px 15px;
+
+	@include breakpoint(tablet2) {
+		width: 100%;
+		float: none;
+		clear: both;
+		margin-top: 10px;
+	}
+
+	h3 {
+		padding-bottom: 10px;
+	}
+
+	p {
+
+		strong {
+			color: $coOrange;
+		}
+	}
+}
+
 .vg-thumg {
 	position: relative;
 	height: 0;
 	padding-bottom: 75%;
+	overflow: hidden;
 
 	img {
 		max-width: 100%;
@@ -432,14 +734,29 @@ a {
 	}
 }
 
-.video-holder video {
+.video-holder {
 	width: 100%;
-	height: auto;
+    padding-bottom: 70%;
+    height: 0;
+    position: relative;
+    background: url('https://ptc-campaign.herokuapp.com/images/giphy.gif') no-repeat center center;
+}
+
+.video-holder video {
+	position: absolute;
+	max-width: 100%;
+	max-height: 100%;
 	display: block;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+
 }
 
 .vg-caption {
-	background: rgba($coBlack, 0.6);
+	background: rgba($coBlack, 0.8);
 	color: $coWhite;
 	position: absolute;
 	bottom: 0;
@@ -447,6 +764,14 @@ a {
 	width: 100%;
 	padding: 10px 10px;
 	font-size: 12px;
+	text-align: left;
+
+	p {
+		strong {
+			margin-bottom: 5px;
+			display: block;
+		}
+	}
 }
 
 #video-wrap {
@@ -473,7 +798,7 @@ a {
 	.popup-content {
 		background: #fff;
 		max-width: 800px;
-		padding: 0px 0px 20px;
+		padding: 0px 0px 0px;
 		margin: 30px auto 0;
 		position: relative;
 	}
@@ -533,7 +858,7 @@ a {
 	    }
 
 	    h2 {
-	    	text-align: left;
+	    	text-align: center;
 	    	margin-bottom: 5px;
 	    	font-size: 16px;
 	    	font-weight: 700;
@@ -547,8 +872,38 @@ a {
 	}
 }
 
+#confirmation-submit {
+	.default-popup {
+	
+		.popup-content {
+			top: inherit;
+			bottom: 30%;
+		}
+	}
+
+	.loader .loader-load {
+		top: inherit;
+		bottom: 30%;
+	}
+}
+
 .p-btn-wrapper {
 	margin-top: 20px;
+
+	a {
+		margin: 0px 3px;
+	}
+}
+
+.btn-wrapper {
+	padding: 10px 0 0;
+	clear: both;
+	float: none;
+
+	.btn {
+		padding: 8px 15px;
+		font-size: 12px;
+	}
 }
 
 .btn {
@@ -562,6 +917,29 @@ a {
 		background: transparent;
 		color: $defaultColor;
 		padding: 10px 15px;
+	}
+
+	&.btn-green {
+		background: #FF590F;
+		/*box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.4);*/
+	}
+
+	&.btn-red {
+		background: lighten($coRed, 5%);
+	}
+
+	&.btn-large {
+		padding: 14px 35px;
+		font-size: 24px;
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+
+	&.btn-grey {
+		background: #f2f2f2;
+		color: #000;
+		border-radius: 3px;
+		border: 1px solid #ccc;
 	}
 }
 
@@ -664,7 +1042,22 @@ a {
 }*/
 
 
+.input-wrap {
 
+	.wavy-loader {
+		padding-left: 160px;
+
+	}
+}
+
+.loading {
+
+	.wavy-loader {
+		visibility: visible;
+		opacity: 1;
+
+	}
+}
 
 .wavy-loader {
 	text-align:center;
@@ -738,5 +1131,80 @@ a {
 		width: 10px;
 		height: 10px;
 	}
+}
+
+.paalala {
+	font-size: 12px;
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 25px;
+	color: #b2b1b1; 
+
+	@include breakpoint(tablet2) {
+		font-size: 11px;
+	}
+}
+
+@-webkit-keyframes wavy-loader{
+	0%{transform:translateY(2px)}
+	3%{transform:translateY(4px)}
+	6%{transform:translateY(6px)}
+	9%{transform:translateY(8px)}
+	12%{transform:translateY(10px)}
+	15%{transform:translateY(-2px)}
+	18%{transform:translateY(-4px)}
+	21%{transform:translateY(-6px)}
+	24%{transform:translateY(-8px)}
+	27%{transform:translateY(-10px)}
+	30%{transform:translateY(1px)}
+	33%{transform:translateY(2px)}
+	36%{transform:translateY(3px)}
+	39%{transform:translateY(-1px)}
+	42%{transform:translateY(-2px)}
+	45%{transform:translateY(-3px)}
+	48%{transform:translateY(0px)}
+	100%{transform:translateY(0px)}
+}
+
+@-moz-keyframes wavy-loader{
+	0%{transform:translateY(2px)}
+	3%{transform:translateY(4px)}
+	6%{transform:translateY(6px)}
+	9%{transform:translateY(8px)}
+	12%{transform:translateY(10px)}
+	15%{transform:translateY(-2px)}
+	18%{transform:translateY(-4px)}
+	21%{transform:translateY(-6px)}
+	24%{transform:translateY(-8px)}
+	27%{transform:translateY(-10px)}
+	30%{transform:translateY(1px)}
+	33%{transform:translateY(2px)}
+	36%{transform:translateY(3px)}
+	39%{transform:translateY(-1px)}
+	42%{transform:translateY(-2px)}
+	45%{transform:translateY(-3px)}
+	48%{transform:translateY(0px)}
+	100%{transform:translateY(0px)}
+}
+	
+@keyframes wavy-loader{
+	0%{transform:translateY(2px)}
+	3%{transform:translateY(4px)}
+	6%{transform:translateY(6px)}
+	9%{transform:translateY(8px)}
+	12%{transform:translateY(10px)}
+	15%{transform:translateY(-2px)}
+	18%{transform:translateY(-4px)}
+	21%{transform:translateY(-6px)}
+	24%{transform:translateY(-8px)}
+	27%{transform:translateY(-10px)}
+	30%{transform:translateY(1px)}
+	33%{transform:translateY(2px)}
+	36%{transform:translateY(3px)}
+	39%{transform:translateY(-1px)}
+	42%{transform:translateY(-2px)}
+	45%{transform:translateY(-3px)}
+	48%{transform:translateY(0px)}
+	100%{transform:translateY(0px)}
 }
 
