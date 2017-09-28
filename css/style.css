@@ -513,7 +513,7 @@ a {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    padding: 5px;
+    padding: 5px 10px;
     height: 33px;
     background: #ffffff;
     outline: none;
@@ -742,7 +742,7 @@ a {
     position: absolute;
     text-align: center;
     left: 50%;
-    top: 30%;
+    bottom: 30%;
     overflow-y: hidden;
     overflow-x: hidden;
     margin-left: -210px;
@@ -992,6 +992,10 @@ a {
   @media (max-width: 767px) {
     .paalala {
       font-size: 11px; } }
+
+#confirmation-submit .loader .loader-load {
+  top: auto !important;
+  bottom: 30%; }
 
 @-webkit-keyframes wavy-loader {
   0% {

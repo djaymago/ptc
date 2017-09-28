@@ -74,9 +74,10 @@
                     <li><a class="btn-gallery-nav btn btn-grey"" href="#step2">Video Gallery</a></li>
                 </ul>
             </div>
+            <hr class="separator-header" style="width: 100%;">
         </div>
     </header>
-    <hr class="separator-header">
+    
     <section id="main-wrapper">
         <div id="step1" class="step-wrap"  style="display: block;">
             <div class="container">
