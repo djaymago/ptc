@@ -20,6 +20,7 @@
 
     <style>
         .separator-header { width: 70%; border: 1px solid #eee; margin-bottom: 20px; }
+        .hide { display: none; }
     </style>
 </head>
 <body>
@@ -216,8 +217,8 @@
                     <ul>
                     </ul>
 
-                    <div class="text-center" style="margin-top:25px; opacity:0;">
-                        <a href="#" class="btn btn-grey load-more">Load More</a>
+                    <div class="text-center" style="margin-top:25px;">
+                        <a href="#" class="btn btn-grey load-more hide">Load More</a>
                         <div class="wavy-loader"><span></span><span></span><span></span></div>
                     </div>
                 </div>
