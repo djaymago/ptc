@@ -139,7 +139,7 @@
                             <div class="input-wrap">
                                 <label for="email-add">Email Address: <span style="color: #d01e1e;">*</span></label>
                                 <input id="email-add" type="email" name="email" value="" placeholder="">
-                                <p class="error-message required-email-address hide">You email address is invalid!</p>
+                                <p class="error-message required-email-address hide">Your email address is invalid!</p>
                             </div>
                             <div class="input-wrap">
                                 <label class="mobile-none" for="p-address">&nbsp;</label>
