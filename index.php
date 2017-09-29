@@ -21,6 +21,7 @@
     <style>
         .separator-header { width: 70%; border: 1px solid #eee; margin-bottom: 20px; }
         .hide { display: none; }
+        input.disabled { opacity: 0.5; }
     </style>
 
     <!-- <script type="text/javascript">

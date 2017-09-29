@@ -312,7 +312,7 @@ function bindEvents() {
 
     //check email address
 
-    $dom.on('change', '#email-add', function() {
+    $dom.on('blur', '#email-add', function() {
         //$dom.on('click', 'body', function() {
         clearTimeout(timer);
 
@@ -346,7 +346,7 @@ function bindEvents() {
             }).error( function() {
 
             });
-        }, 1000);
+        }, 5);
 
     });
 }
