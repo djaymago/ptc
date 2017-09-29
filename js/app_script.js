@@ -7,6 +7,7 @@ var btnShare = '.btn-share-click';
 var btnShareConf = '.btn-share-confirm';
 var btnGoGallery = '.btn-go-gallery';
 var btnSubmitNew = '.btn-submit-new';
+var btnSubmit = '.btn-submit-entry';
 var frmSection = '.frm-section';
 var modalThankYou = '#confirmation-thankyou';
 var modalSubmit = '#confirmation-submit';
@@ -316,6 +317,10 @@ function bindEvents() {
         clearTimeout(timer);
 
         timer = setTimeout( function() {
+
+            $(btnSubmit).attr('disabled', true).addClass('disabled');
+            $(btnSubmit).val('Checking email address...');
+
             $.ajax({
                 url: host+'/verifyEmail',
                 type: "POST",
@@ -334,6 +339,9 @@ function bindEvents() {
                     $(labelInvalidEmail).removeClass('hide');
                 }
             }).always( function(response) {
+                $(btnSubmit).removeAttr('disabled', true).removeClass('disabled');
+                $(btnSubmit).val('Submit');
+
                 console.log(response);
             }).error( function() {
 

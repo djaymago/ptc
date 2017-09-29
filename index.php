@@ -188,7 +188,7 @@
                             </div>
                             <div class="input-wrap">
                                 <label>&nbsp;</label>
-                                <input type="submit" class="btn" name="" value="Submit">
+                                <input type="submit" class="btn btn-submit-entry" name="" value="Submit">
                             </div>
                         </form>
                     </div>
