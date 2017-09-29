@@ -342,6 +342,11 @@ function bindEvents() {
                 $(btnSubmit).removeAttr('disabled', true).removeClass('disabled');
                 $(btnSubmit).val('Submit');
 
+                if(response.responseText.indexOf('ERROR CODE') > -1) {
+                    isEmailAddress = false;
+                    $('#email-add').closest('.input-wrap').addClass('error');
+                    $(labelInvalidEmail).removeClass('hide');
+                }
                 console.log(response);
             }).error( function() {
 
