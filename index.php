@@ -22,6 +22,13 @@
         .separator-header { width: 70%; border: 1px solid #eee; margin-bottom: 20px; }
         .hide { display: none; }
     </style>
+
+    <!-- <script type="text/javascript">
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        } else {
+            top.location.href="http://bit.ly/2yK6bin";
+        }
+    </script> -->
 </head>
 <body>
 <section id="main-container">
