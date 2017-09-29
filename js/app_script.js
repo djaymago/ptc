@@ -13,10 +13,13 @@ var modalSubmit = '#confirmation-submit';
 var modalLike = '#confirmation-like';
 var modalShare = '#confirmation-share';
 
+var labelInvalidEmail = '.required-email-address';
+
 var sectComplete = '#upload-complete';
 var serverHost = getHost();
 var host = serverHost+"listener/poten-cee";
 var galleryActiveID = 0;
+var isEmailAddress = false;
 
 var page = 1;
 var limit = 9;
@@ -24,6 +27,7 @@ var btnLoadMore = '.load-more';
 $loader = $('.wavy-loader');
 
 var hastag;
+var timer;
 
 $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
     FB.init({
@@ -214,7 +218,6 @@ function bindClicks() {
             $('#video-holder').removeClass('active');
         });
     });
-
 }
 
 
@@ -255,9 +258,12 @@ function bindEvents() {
             isvalidate = false;
         }
 
-        if( IsEmail($('#email-add').val() )) {
+        console.log(isEmailAddress)
+        if( IsEmail($('#email-add').val() ) && isEmailAddress) {
             $('#email-add').closest('.input-wrap').removeClass('error');
+            $(labelInvalidEmail).addClass('hide');
         } else {
+            $(labelInvalidEmail).removeClass('hide');
             isvalidate = false;
         }
 
@@ -301,6 +307,39 @@ function bindEvents() {
         }
 
         return false;
+    });
+
+    //check email address
+
+    $dom.on('change', '#email-add', function() {
+        //$dom.on('click', 'body', function() {
+        clearTimeout(timer);
+
+        timer = setTimeout( function() {
+            $.ajax({
+                url: host+'/verifyEmail',
+                type: "POST",
+                data: {
+                    email: $('#email-add').val()
+                },
+                crossDomain: true
+            }).done( function(response) {
+                if(response && response.details==='VALID') {
+                    isEmailAddress = true;
+                    $('#email-add').closest('.input-wrap').removeClass('error');
+                    $(labelInvalidEmail).addClass('hide');
+                } else {
+                    isEmailAddress = false;
+                    $('#email-add').closest('.input-wrap').addClass('error');
+                    $(labelInvalidEmail).removeClass('hide');
+                }
+            }).always( function(response) {
+                console.log(response);
+            }).error( function() {
+
+            });
+        }, 1000);
+
     });
 }
 
