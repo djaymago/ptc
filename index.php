@@ -109,7 +109,7 @@
                 </div>
 
                 <div class="form-wrapper frm-section" style="display:none;">
-                    <h2 class="text-left" style="max-width: 500px; margin: 15px auto 15px;">Dear Mommies, <br>To enter, please fill out the form below to enter</h2>
+                    <h2 class="text-left" style="max-width: 500px; margin: 15px auto 15px;">Dear Mommy, <br>To enter, please fill out the form below</h2>
                     <hr>
                     <div class="form-content">
                         <form method="post" id="formEntry">
