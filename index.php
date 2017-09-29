@@ -110,7 +110,7 @@
                 </div>
 
                 <div class="form-wrapper frm-section" style="display:none;">
-                    <h2 class="text-left" style="max-width: 500px; margin: 15px auto 15px;">Dear Mommy, <br>To enter, please fill out the form below</h2>
+                    <h2 class="text-left" style="max-width: 500px; margin: 15px auto 15px;">Dear Mommy,<br>To enter, please fill out the form below.</h2>
                     <hr>
                     <div class="form-content">
                         <form method="post" id="formEntry">
@@ -173,7 +173,7 @@
                                 <label>&nbsp;</label>
                                 <div class="custom-checkbox">
                                     <input type="checkbox" id="term-checkbox"/>
-                                    <label for="term-checkbox">I accept Terms and Conditions</label>
+                                    <label for="term-checkbox">I accept the Terms and Conditions</label>
                                 </div>
                             </div>
                             <div class="input-wrap">
