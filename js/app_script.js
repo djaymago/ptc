@@ -221,7 +221,11 @@ function bindClicks() {
     });
 
     $dom.on('click', '.submit-your-entry', function() {
-        window.open('https://ptc-campaign.herokuapp.com/');
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+
+        } else {
+            window.open('https://ptc-campaign.herokuapp.com/');
+        }
     });
 }
 
