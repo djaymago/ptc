@@ -238,7 +238,11 @@ function bindClicks() {
             $(btnJoin).trigger('click');
         //if desktop
         } else {
-            window.open('https://ptc-campaign.herokuapp.com/');
+            if(location.href.indexOf('raw2.statichtmlapp.com')==-1) {
+                $(btnJoin).trigger('click');
+            } else {
+                window.open('https://ptc-campaign.herokuapp.com/');
+            }
         }
     });
 }
