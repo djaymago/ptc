@@ -39,10 +39,12 @@ $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
     setTimeout( function() {
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 
-            //if desktop
+            //if desktop https://raw2.statichtmlapp.com/tab/preview
         } else {
-            $('body,html').scrollTop(window.outerHeight);
-            $(btnJoin).trigger('click');
+            if(location.href.indexOf('raw2.statichtmlapp.com')==-1) {
+                $('body,html').scrollTop(window.outerHeight);
+                $(btnJoin).trigger('click');
+            }
         }
     }, 1000);
 });
