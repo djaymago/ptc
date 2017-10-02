@@ -35,6 +35,16 @@ $.getScript('//connect.facebook.net/en_US/sdk.js', function(){
         appId: '487951431561097',
         version: 'v2.10'
     });
+
+    setTimeout( function() {
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+
+            //if desktop
+        } else {
+            $('body,html').scrollTop(window.outerHeight);
+            $(btnJoin).trigger('click');
+        }
+    }, 1000);
 });
 
 function getHost() {
@@ -221,8 +231,10 @@ function bindClicks() {
     });
 
     $dom.on('click', '.submit-your-entry', function() {
+        //if mobile do not do something
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-
+            $(btnJoin).trigger('click');
+        //if desktop
         } else {
             window.open('https://ptc-campaign.herokuapp.com/');
         }
@@ -231,6 +243,7 @@ function bindClicks() {
 
 
 function bindEvents() {
+
     document.getElementById("upload-file").accept = "video/*"
 
     $('#term-checkbox').change(function(){
