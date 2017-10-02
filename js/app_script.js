@@ -531,7 +531,7 @@ function loginCallback(data) {
             saveUserFBId(response.id);
             $(btnJoin).hide();
             $(frmSection).show();
-            setTimeout( function() { $('body,html').scrollTop(2000); $(window).scrollTop(2000); }, 200);
+            setTimeout( function() { $('body,html').scrollTop(window.outerHeight); $(window).scrollTop(window.outerHeight); }, 200);
         });
     }
 }
