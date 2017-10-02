@@ -219,6 +219,10 @@ function bindClicks() {
             $('#video-holder').removeClass('active');
         });
     });
+
+    $dom.on('click', '.submit-your-entry', function() {
+        $(btnJoin).trigger('click');
+    });
 }
 
 
@@ -508,7 +512,7 @@ function loginCallback(data) {
             saveUserFBId(response.id);
             $(btnJoin).hide();
             $(frmSection).show();
-            $dom.scrollTop(window.outerHeight);
+            setTimeout( function() { $('body,html').scrollTop(2000); $(window).scrollTop(2000); }, 200);
         });
     }
 }

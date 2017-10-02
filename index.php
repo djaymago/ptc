@@ -81,7 +81,7 @@
         <div class="container">
             <div class="menu text-center">
                 <ul>
-                    <li class="active"><a href="#step1" class="btn btn-orange">Submit Your Entry</a></li>
+                    <li class="active"><a href="#step1" class="btn btn-orange submit-your-entry">Submit Your Entry</a></li>
                     <li><a class="btn-gallery-nav btn btn-grey"" href="#step2">Video Gallery</a></li>
                 </ul>
             </div>
@@ -238,19 +238,19 @@
     </section>
 </section>
 <footer></footer>
-<script src="https://ptc-campaign.herokuapp.com/js/lib/jquery.min.js"></script>
-<script src="https://ptc-campaign.herokuapp.com/js/lib/jquery-ui.min.js"></script>
-<script src="https://ptc-campaign.herokuapp.com/js/plugins.js"></script>
-<script src="https://ptc-campaign.herokuapp.com/js/custom.js"></script>
-<script src="https://ptc-campaign.herokuapp.com/js/app_script.js"></script>
-<script src="https://ptc-campaign.herokuapp.com/js/loader/script.js"></script>
-<script src="https://ptc-campaign.herokuapp.com/js/sticky/sticky.min.js"></script>
-<!--<script src="js/lib/jquery.min.js"></script>-->
-<!--<script src="js/lib/jquery-ui.min.js"></script>-->
-<!--<script src="js/plugins.js"></script>-->
-<!--<script src="js/custom.js"></script>-->
-<!--<script src="js/app_script.js"></script>-->
-<!--<script src="js/loader/script.js"></script>-->
-<!--<script src="js/sticky/sticky.min.js"></script>-->
+<!--<script src="https://ptc-campaign.herokuapp.com/js/lib/jquery.min.js"></script>-->
+<!--<script src="https://ptc-campaign.herokuapp.com/js/lib/jquery-ui.min.js"></script>-->
+<!--<script src="https://ptc-campaign.herokuapp.com/js/plugins.js"></script>-->
+<!--<script src="https://ptc-campaign.herokuapp.com/js/custom.js"></script>-->
+<!--<script src="https://ptc-campaign.herokuapp.com/js/app_script.js"></script>-->
+<!--<script src="https://ptc-campaign.herokuapp.com/js/loader/script.js"></script>-->
+<!--<script src="https://ptc-campaign.herokuapp.com/js/sticky/sticky.min.js"></script>-->
+<script src="js/lib/jquery.min.js"></script>
+<script src="js/lib/jquery-ui.min.js"></script>
+<script src="js/plugins.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/app_script.js"></script>
+<script src="js/loader/script.js"></script>
+<script src="js/sticky/sticky.min.js"></script>
 </body>
 </html>
