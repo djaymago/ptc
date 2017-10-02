@@ -221,7 +221,7 @@ function bindClicks() {
     });
 
     $dom.on('click', '.submit-your-entry', function() {
-        $(btnJoin).trigger('click');
+        window.open('https://ptc-campaign.herokuapp.com/');
     });
 }
 
